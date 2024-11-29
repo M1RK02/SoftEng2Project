@@ -68,7 +68,7 @@
             \vfill
             \centering
             \transparent{0.4}
-            \includegraphics[width=0.85\paperwidth]{images/raggiera_polimi}
+            \includegraphics[width=0.85\paperwidth]{Images/raggiera_polimi}
             \vfill
         }}}
 
@@ -79,7 +79,7 @@
             \vfill
             \centering
             \transparent{0.4}
-            \includegraphics[width=0.70\paperwidth]{images/raggiera_polimi}
+            \includegraphics[width=0.70\paperwidth]{Images/raggiera_polimi}
             \vfill
         }}}
 
@@ -108,7 +108,7 @@
         \AddToShipoutPicture*{\BackgroundPicTR}
         \vfill
         \begin{minipage}{0.95\textwidth}
-            \includegraphics[trim={1.2cm 0 0 0},clip, width=0.7\textwidth]{images/02_ING_IND_INFORMAZIONE_COL_POSITIVO}
+            \includegraphics[trim={1.2cm 0 0 0},clip, width=0.7\textwidth]{Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO}
             \hfill
             \\
             \vspace{2.5cm}
