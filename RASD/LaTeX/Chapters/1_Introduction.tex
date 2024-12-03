@@ -1,17 +1,13 @@
-Online coding challenges and platforms have become an essential resource for programmers and developers in the modern tech landscape. These platforms provide a versatile means to enhance coding skills, offer practical learning experiences, and promote a competitive and engaging approach to problem-solving. Additionally, participation in such platforms can prepare individuals for tech industry job interviews, as many companies utilize similar coding challenges during their recruitment processes.\\
-Indeed, online coding challenge platforms are proving to be invaluable tools. They not only facilitate skill development and community engagement, but also foster professional growth in the continuously evolving field of programming.
-
-What makes the CodeKataBattle platform even more compelling is the involvement of experienced Educators who create coding Battles. These experts design challenges that are not only instructive but also thought-provoking, ensuring a rich and educational experience for participants.
-
-Moreover, these platforms often facilitate the creation of groups, enabling collaborative problem-solving and enhancing team working skills. Users can form teams, tackle challenges together, and learn from one another's approaches. This group dynamic adds an extra layer of motivation and shared learning experiences, enhancing the value of these platforms for participants.
+TODO
 
 \newpage
 
 \section{Purpose}
 \label{sec:purpose}%
-The purpose of this document is to present a detailed description of CodeKataBattle.
-It is addressed to the developers who have to implement the requirements and could be used as an agreement between the customer and the contractors.\\ 
-The document is also intended to provide the customer with a clear and unambiguous description of the system's functionalities and constraints, allowing the customer to validate the requirements and to verify if the system meets the expectations.
+Today, enriching our CV to give us more opportunities in the job world became a very important challenge. 
+
+Fortunately a lot of universities have contact with several companies that offer students many opportunities to join internships.
+
 
 \subsection{Goals}
 \label{subsec:goals}%
@@ -19,29 +15,29 @@ The document is also intended to provide the customer with a clear and unambiguo
 \setcounter{g}{1}
 \newcommand{\cg}{\theg\stepcounter{g}}
 
-Below there's a table that lists all the goals of the CKB system:
+Below there's a table that lists all the goals of the S\&C system:
 \begin{center}
     \begin{longtable}{ |l|p{0.9\linewidth}| }
         \hline
         \textbf{ID} & \textbf{Description}                                                                   \\
         \hline
-        G\cg        &   Allow an ED to create a Tournament                          \\
+        G\cg        &   Allow companies to post their internship opportunities\\
         \hline
-        G\cg        &   Allow a ST to subscribe to a specific Tournament before the registration deadline                          \\
+        G\cg        &   Allow students to search for available internships\\
         \hline
-        G\cg        &  Allow an ED to create a Battle                        \\
+        G\cg        &  Notify students when an internship that might be of interest to them is posted\\
         \hline
-        G\cg        &   Allow any User to visualize the profile of other Users and their Badges                         \\
+        G\cg        &   Notify companies when a student matching their needs becomes available\\
         \hline
-        G\cg        &  Allow a ST to subscribe to a specific Battle before the registration deadline                         \\
+        G\cg        &  Provide tools for both companies and students to manage the selection process\\
         \hline
-        G\cg        &  Allow STs to submit their code before the submission deadline                          \\
+        G\cg        &  Collect feedback from students and companies to improve the matchmaking process\\
         \hline
-        G\cg        &  Allow an ED to set Badges for deserving STs \\
+        G\cg        &  Provide suggestions for companies to improve internship descriptions and for students to improve their resumes.\\
         \hline
-        G\cg        &  Allow any User to view the result and the progress of a Tournament                          \\
+        G\cg        &  Allow all parties to monitor the status of the matchmaking process and the assigned internship.\\
         \hline
-        G\cg        &  Allow any User to view the results of a Battle \\
+        G\cg        &  Allow universities to monitor internships and handle any problems\\
         \hline
         \caption{Goals table.}
         \label{tab:goals_tab}%
@@ -51,7 +47,7 @@ Below there's a table that lists all the goals of the CKB system:
 
 \section{Scope}
 \label{sec:scope}%
-CodeKataBattle (CKB) is a new platform that aims to help Students to improve their software development skills by participating in Tournaments and Battles, in which they will train on code katas, programming exercises that contain some test cases to be passed. Educators will create Tournaments and Battles in order to challenge the Students that will be asked to create groups and compete with their code.
+TODO
 
 \newpage
 
@@ -65,37 +61,35 @@ CodeKataBattle (CKB) is a new platform that aims to help Students to improve the
         \hline
         \textbf{ID} & \textbf{Description}                                                \\
         \hline
-        WP\cwp      & The ED wants to create a Tournament                           \\
+        WP\cwp      & The Company wants to publish its internships\\
         \hline
-        WP\cwp      & The ST wants to join a Tournament   \\
+        WP\cwp      & The Student wants to upload his information \\
         \hline
-        WP\cwp      & The ED wants to create a Battle   \\
+        WP\cwp      & The Student wants to look for available internships \\
         \hline
-        WP\cwp      & The ST wants to join a Battle   \\
+        WP\cwp      & The Student wants to apply for an internship \\
         \hline
-        WP\cwp      & The ST wants to create a STG for a Battle   \\
+        WP\cwp      & The Company wants to offer an internship to a student \\
         \hline
-        WP\cwp      & The ST wants to fork the repository on GH   \\
+        WP\cwp      & The Company wants to accept a student for an internship \\
         \hline
-        WP\cwp      & The ST wants to push their code on GH   \\
+        WP\cwp      & The Company wants to interview a student \\
         \hline
-        WP\cwp      & The ST wants to search another User profile   \\
+        WP\cwp      & The Student wants to monitor application status \\
         \hline
-        WP\cwp      & The ED wants to search another User profile   \\
+        WP\cwp      & The Company wants to make a complaint \\
         \hline
-        WP\cwp      & The ST wants to search a Tournament   \\
+        WP\cwp      & The Student wants to make a complaint \\
         \hline
-        WP\cwp      & The ED wants to search a Tournament  \\
+        WP\cwp      & The University wants to handle complaints \\
         \hline
-        WP\cwp      & The ST wants to check the rankings of a Battle \\
+        WP\cwp      & The Company wants to submit questionnaires to students \\
         \hline
-        WP\cwp      & The ED wants to check the rankings of a Battle \\
+        WP\cwp      & The Student wants to respond to questionnaires \\
         \hline
-        WP\cwp      & The ST wants to check the rankings of a Tournament \\
+        WP\cwp      & A company makes a final selection after all interviews \\
         \hline
-        WP\cwp      & The ED wants to check the rankings of a Tournament \\
-        \hline
-        \caption{World Phenomenas.}
+        \caption{World Phenomena.}
         \label{tab:worldph_tab}%
     \end{longtable}
 \end{center}
@@ -112,99 +106,101 @@ CodeKataBattle (CKB) is a new platform that aims to help Students to improve the
         \hline
         \textbf{ID} & \textbf{Description} & \textbf{Controller} & \textbf{Observer} \\
         \hline
-        SP\csp      & The ED creates an account in the CKB system      & ED       & CKB  \\
+        SP\csp      & The Company creates an account in the S\&C system      & CP       & S\&C  \\
         \hline
-        SP\csp      & The ED logs in his account in the CKB system     & ED         & CKB           \\
+        SP\csp      & The Company logs in his account in the S\&C system & CP         & S\&C           \\
         \hline
-        SP\csp      & The ED logs out of his account from the CKB system     & ED         & CKB           \\
+        SP\csp      &The Company logs out of his account from the S\&C system & CP         & S\&C           \\
         \hline
-        SP\csp      & The ED creates a Tournament  & ED         & CKB           \\
+        SP\csp      & The Student creates an account in the S\&C system  & ST         & S\&C           \\
         \hline
-        SP\csp      & CKB adds the Tournament to the ED's Tournament list  & CKB         & ED           \\
+        SP\csp      & The Student logs in his account in the S\&C system  & ST         & S\&C           \\
         \hline
-        SP\csp      & The ED checks his Tournament list  & ED         & CKB           \\
+        SP\csp      & The Student logs out of his account from the S\&C system  & ST         & S\&C           \\
         \hline
-        SP\csp      & The ED grants other EDs the permission to create Battles within a Tournament  & ED         & CKB\\
+        SP\csp      & The Company sets the domain for the internship  & CP         & S\&C\\
         \hline
-        SP\csp      & The ED creates a Battle in a specific Tournament  & ED         & CKB           \\
+        SP\csp      & The Company sets the topics for the project & CP         & S\&C           \\
         \hline
-        SP\csp      & CBK adds the Battle to the ED's Battle list  & CKB         & ED           \\
+        SP\csp      & The Company sets the technologies adopted in the project  & CP         & S\&C           \\
         \hline
-        SP\csp      & The ED checks his Battle list  & ED         & CKB           \\
+        SP\csp      & The Company sets the terms of the internship  & CP         & S\&C           \\
         \hline
-        SP\csp      & The ED uploads the code kata in the Battle  & ED         & CKB           \\
+        SP\csp      & The Company publish its internship  & CP         & S\&C           \\
         \hline
-        SP\csp      & The ED sets the minimum and the maximum number of STs per group for the Battle  & ED & CKB \\
+        SP\csp      & The Company checks his published internships  & CP & S\&C \\
         \hline
-        SP\csp      & The ED sets a registration deadline to the Battle  & ED         & CKB           \\
+        SP\csp      & The Student fills the experiences form  & ST         & S\&C           \\
         \hline
-        SP\csp      & The ED sets a final submission deadline to the Battle  & ED         & CKB           \\
+        SP\csp      & The Student fills the skills form  & ST & S\&C           \\
         \hline
-        SP\csp      & The ED sets additional configurations for scoring in the Battle  & ED         & CKB           \\
+        SP\csp      & The Student fill the attitudes form  & ST & S\&C  \\
         \hline
-        SP\csp      & The ED sets the Badges that STs could be awarded in the Battle  & ED         & CKB           \\
+        SP\csp      & The Student upload his CV on the system  & ST& S\&C \\
         \hline
-        SP\csp      & The ED sets the parameters of the Badges that STs could be awarded in the Battle  & ED         & CKB           \\
+        SP\csp      & The Student visualize his profile overview  & ST         & S\&C           \\
         \hline
-        SP\csp      & The ST creates an account in the CKB system  & ST         & CKB           \\
+        SP\csp      & The Students check for internship with keyword searching  & ST         & S\&C           \\
         \hline
-        SP\csp      & The ST logs in his account in the CKB system  & ST         & CKB           \\
+        SP\csp      & The Students check for internship in his recommendation list  & ST         & S\&C           \\
         \hline
-        SP\csp      & The ST logs out from his account out of the CKB system     & ED         & CKB           \\
+        SP\csp      & The Student apply for an internship & ST& S\&C \\
         \hline
-        SP\csp      & CKB notifies STs that a Tournament has been created  & CKB         & ST          \\
+        SP\csp      & The Company check for students in his recommendation list  & CP & S\&C          \\
         \hline
-        SP\csp      & The ST subscribes to a specific Tournament before the registration deadline  & ST         & CKB    \\
+        SP\csp      & The Company contacts a student for an internship  & CP         & S\&C    \\
         \hline
-        SP\csp      & CKB notifies STs that a Battle has been created & CKB         & ST           \\
+        SP\csp      & The Company accept an application for an internship & CP & S\&C           \\
         \hline
-        SP\csp      & The ST subscribes to a specific Battle before the registration deadline  & ST         & CKB    \\
+        SP\csp      & The Student accept an offer for an internship  & ST         & S\&C    \\
         \hline
-        SP\csp      & CKB adds the Tournament to the ST's Battle list  & CKB         & ST           \\
+        SP\csp      & The Company creates questionnaires to be submitted to internship applicants  & CP & S\&C           \\
         \hline
-        SP\csp      & The ST creates a STG for the Battle  & ST         & CKB           \\
+        SP\csp      & The Student responds to questionnaires submitted to him  & ST         & S\&C           \\
         \hline
-        SP\csp      & The ST invites other STs to join his STG for a Battle  & ST         & CKB           \\
+        SP\csp      & The Company finalize the selection and submit it to the system  & CP & S\&C           \\
         \hline
-        SP\csp      & CKB sends a notification to the ST when he receives ain invitation to join a STG  & CKB         & ST           \\
+        SP\csp      & The Company fills the feedback form  & CP & S\&C \\
         \hline
-        SP\csp      & The ST accepts other ST's invitations to join their STG for a Battle  & ST         & CKB           \\
+        SP\csp      & The Students fills the feedback form  & ST & S\&C \\
         \hline
-        SP\csp      & CKB adds the STs to the STG  & CKB         & ST           \\
+        SP\csp      & The Company makes a complaint about a student & CP & S\&C           \\
         \hline
-        SP\csp      & CKB creates a GH repository containing the code kata and sends the link to all STs registered in the Battle  & CKB         & ST           \\
+        SP\csp      & The Student makes a complaint about an internship  & ST & S\&C           \\
         \hline
-        SP\csp      & The ST commits a new version of his code & ST         & CKB           \\
+        SP\csp      & The University handle a complaint from the Company & UV & S\&C \\
         \hline
-        SP\csp      & CKB runs the tests on the source code & CKB      & ST           \\
+        SP\csp      & The University handle a complaint from the Student & UV & S\&C \\
         \hline
-        SP\csp      & CKB updates the score of the STG on the Battle's Leaderboard  & CKB         & ST           \\
+        SP\csp      & The University interrupt an internship  & UV & S\&C \\
         \hline
-        SP\csp      & CKB updates the score of the ST on the Tournament's Leaderboard  & CKB         & ST           \\
+        SP\csp      & S\&C adds the internship to the Company’s Internship list  & S\&C & CP \\
         \hline
-        SP\csp      & STs can view the current ranks evolving during the Battle  & ST        & CKB      \\
+        SP\csp      & S\&C informs Companies about the availability of students corresponding to their needs  & S\&C & CP      \\
         \hline
-        SP\csp      & EDs can view the current ranks evolving during the Battle  & ED      & CKB      \\
+        SP\csp      & S\&C informs Students about an internship offer  & S\&C & ST      \\
         \hline
-        SP\csp      & During the consolidation stage, EDs can manually modify the scores of the STG & ED         & CKB           \\
+        SP\csp      & S\&C informs Students about an internship that might interest them & S\&C & ST \\
         \hline
-        SP\csp      & CKB notifies all STs when the final Battle ranks are available  & CKB         & ST           \\
+        SP\csp      & S\&C informs the Company about a student's application for an internship  & S\&C & CP           \\
         \hline
-        SP\csp      & The ED closes the Tournament  & ED         & CKB           \\
+        SP\csp      & S\&C informs the Student about an internship acceptance  & S\&C         & ST           \\
         \hline
-        SP\csp      & CKB notifies all the STs involved in the Tournament when the final ranks of the Tournament are available  & CKB         & ST           \\
+        SP\csp      & S\&C informs the Company about an internship acceptance  & S\&C         & CP           \\
         \hline
-        SP\csp      & STs can view the current ranks evolving during the Tournament  & ST        & CKB      \\
+        SP\csp      & S\&C keeps track of the responses submitted by the students  & S\&C        & ST      \\
         \hline
-        SP\csp      & EDs can view the current ranks evolving during the Tournament  & ED        & CKB      \\
+        SP\csp      & S\&C informs the Students that they’ve been selected or rejected  & S\&C        & ST      \\
         \hline
-        SP\csp      & CKB assigns the Badges to the STs  & CKB         & ST           \\
+        SP\csp      & S\&C collect feedback and suggestions from Students  & S\&C         & ST           \\
         \hline
-        SP\csp      & The ST can visualize the profile of other ST or ED  & ST        & CKB           \\
+        SP\csp      & S\&C collect feedback and suggestions from Company & S\&C & CP \\
         \hline
-        SP\csp      & The ED can visualize the profile of other ST or ED  & ED        & CKB           \\
+        SP\csp      & S\&C collect complaints from Students  & S\&C & ST \\
         \hline
-        \caption{Shared Phenomenas.}
+        SP\csp      & S\&C collect complaints from Company  & S\&C & CP \\
+        \hline
+        \caption{Shared Phenomena.}
         \label{tab:sharedph_tab}%
     \end{longtable}
 \end{center}
@@ -222,11 +218,11 @@ CodeKataBattle (CKB) is a new platform that aims to help Students to improve the
             \hline
             ST              & Student                         \\
             \hline
-            ED              & Educator                         \\
+            CP              & Company                         \\
             \hline
-            STG             & Student Group                    \\
+            UV             & University                    \\
             \hline
-            CKB             & CodeKataBattle                   \\
+            S\&C             & Students\&Companies                   \\
             \hline
             GH              & GitHub                           \\
             \hline
@@ -255,9 +251,7 @@ CodeKataBattle (CKB) is a new platform that aims to help Students to improve the
 \label{sec:revision_history}%
 \begin{itemize}
     \item \textbf{Version 1.0} - 20/12/2023
-    \item In section 3.2.3 added the Create a new Badge and Modify an Existing Badge use cases and the related sequence diagrams (also the Create Torunament is been modified for this scope).
-    \item In section 3.2.3 added in Create a Battle the creation of github repository.
-    \item In section 3.2.3 some little changes into the Login, Evaluate a code, Join Tournament and Join Battle sequence diagrams and Use case.
+
 \end{itemize}
 
 
