@@ -103,7 +103,7 @@ The university monitors the situation of internships to handle complaints.
         \hline
         WP\cwp      & The Student wants to respond to questionnaires \\
         \hline
-        WP\cwp      & A company makes a final selection after all interviews \\
+        WP\cwp      & The company makes a final selection after all interviews \\
         \hline
         \caption{World Phenomena.}
         \label{tab:worldph_tab}%
@@ -122,8 +122,6 @@ The university monitors the situation of internships to handle complaints.
         \hline
         \textbf{ID} & \textbf{Description} & \textbf{Controller} & \textbf{Observer} \\
         \hline
-        SP\csp      & The Company creates an account in the S\&C system      & CP       & S\&C  \\
-        \hline
         SP\csp      & The Company logs in his account in the S\&C system & CP         & S\&C           \\
         \hline
         SP\csp      &The Company logs out of his account from the S\&C system & CP         & S\&C           \\
@@ -136,9 +134,9 @@ The university monitors the situation of internships to handle complaints.
         \hline
         SP\csp      & The Company sets the domain for the internship  & CP         & S\&C\\
         \hline
-        SP\csp      & The Company sets the topics for the project & CP         & S\&C           \\
+        SP\csp      & The Company sets the topics for the internship & CP         & S\&C           \\
         \hline
-        SP\csp      & The Company sets the technologies adopted in the project  & CP         & S\&C           \\
+        SP\csp      & The Company sets the technologies adopted in their project  & CP         & S\&C           \\
         \hline
         SP\csp      & The Company sets the terms of the internship  & CP         & S\&C           \\
         \hline
@@ -172,7 +170,7 @@ The university monitors the situation of internships to handle complaints.
         \hline
         SP\csp      & The Company creates questionnaires to be submitted to internship applicants  & CP & S\&C           \\
         \hline
-        SP\csp      & The Student responds to questionnaires submitted to him  & ST         & S\&C           \\
+        SP\csp      & The Student completes questionnaires or tasks given to him  & ST         & S\&C           \\
         \hline
         SP\csp      & The Company finalize the selection and submit it to the system  & CP & S\&C           \\
         \hline
@@ -183,6 +181,8 @@ The university monitors the situation of internships to handle complaints.
         SP\csp      & The Company makes a complaint about a student & CP & S\&C           \\
         \hline
         SP\csp      & The Student makes a complaint about an internship  & ST & S\&C           \\
+        \hline
+        SP\csp      & The university monitors the status of an internship  & ST & S\&C           \\
         \hline
         SP\csp      & The University handle a complaint from the Company & UV & S\&C \\
         \hline
@@ -228,8 +228,7 @@ The university monitors the situation of internships to handle complaints.
 \subsection{Definitions}
 \label{subsec:definitions}%
 \begin{itemize}
-    \item \textbf{Static analysis tool:} Method of debugging that is done by automatically examining the source code without having to execute the program ensuring that is compliant, safe, and secure.
-    \item \textbf{Dynamic analysis tool:} Process of testing and evaluating a programme thanks to running a test on the code.
+TODO
 \end{itemize}
 
 
