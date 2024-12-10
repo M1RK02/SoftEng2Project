@@ -53,8 +53,6 @@ Chiara logs into her account, opens the "Notifications" section, and clicks on t
 \paragraph{Scenario 15: S\&C updates ST on the progress of their application}
 Franco applied for a data science internship offered by HugeData through the S\&C system. A few days later, he receives a notification that his application has been accepted and he is scheduled for an interview. In the notification, he finds the interview details: the date, time, and a link to join. He confirms his availability by clicking "Accept interview".
 
-\newpage
-
 \subsection{Class diagrams}
 \label{subsec:class_diagrams}%
 
@@ -107,7 +105,31 @@ Here are listed a summary of the main functions of the S\&C system:\\\\
 
 \section{User characteristic}
 \label{sec:User_characteristic}%
-TODO
+There are three types of users in the S\&C platform: Students (STs), Companies (CPs) and Universities (UVs). Below is a description of their main characteristics and functionalities within the platform.
+\begin{itemize}
+    \item ST: Students are users seeking internships to gain experience or fulfill academic requirements. They can register and log in to the platform by providing their personal details, educational background, and resume. Once registered, they can:
+    \begin{itemize}
+        \item Search for available internships.
+        \item Apply for internships that match their interests.
+        \item Receive personalized internship recommendations based on their profiles.
+        \item Accept or reject internship offers.
+        \item Provide feedback on their internship experiences after completing them.
+    \end{itemize}
+    \item CP: Companies use the platform to find suitable candidates for their internships and ease the selection process. Companies must provide basic information about their organization when registering and then they can:
+    \begin{itemize}
+        \item Create, publish, update, or remove internship postings.
+        \item Search for students who match their requirements.
+        \item Review applications and contact students.
+        \item Conduct interviews and finalize candidate selection.
+        \item Provide feedback about students post-internship.
+    \end{itemize}
+    \item UV: Universities act as a supervisor to ensure proper conduct of internships. Universities have access to the feedback and status of internships to maintain oversight and address issues effectively. Universities must provide basic information about them when registering and their primary responsibilities are:
+    \begin{itemize}
+        \item Monitoring the progress of internships.
+        \item Handling complaints or disputes raised by students or companies.
+        \item Ensuring compliance with academic and professional standards.
+    \end{itemize}
+\end{itemize}
 
 \section{Assumptions, dependencies and constraints}
 \label{sec:assumptions_dependencies_constraints}%
