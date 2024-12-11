@@ -74,21 +74,29 @@ Lastly, Feedback, provided by students and companies, helps improve the internsh
 \subsection{State diagrams}
 \label{subsec:state_diagrams}%
 In this section are presented the State Diagrams of the S\&C system representing possible operations that a user can perform.
-TODO
 
-\paragraph{Sign-up.}
-
+\paragraph{ST sign-up.}
+When a student wants to register on S\&C system, is asked to provide his credentials, like email address, password, name and surname,  in a registration form.
+If the provided credentials are considered valid (i.e. ensuring that email already used or password is too weak), S\&C system will send to the provided email a confirmation message. Upon the user confirming the registration through the provided email link, the new account is successfully created.
+If the provided credentials are considered not valid, S\&C redirects user to the sign-up form with an error message.
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=1\linewidth]{RASD/LaTeX/Images/StateDiagrams/signup.png}
-        \caption{Sign-up state diagram}
+        \caption{ST sign-up state diagram}
         \label{fig:signup_sd}%
     \end{center}
 \end{figure}
 
 \paragraph{Login.}
-Brief description
+When a registered user wants to log in to his S\&C account, he must enter his credentials into login form.
+If the provided credentials are valid (a corresponding account is in the S\&C database) S\&C redirect the user to his Home Page built according to the type of user:
+\begin{itemize}
+    \item ST: S\&C shows him the recommended internships and a search bar;
+    \item CP: S\&C shows him the recommended students;
+    \item UV: S\&C shows him the list of its students who are engaged in an internship.
+\end{itemize}
+If the provided credentials are considered not valid, S\&C redirects user to the login form with an error message.
 
 \begin{figure}[H]
     \begin{center}
@@ -98,10 +106,10 @@ Brief description
     \end{center}
 \end{figure}
 
-Repeat
-
 \paragraph{Update CV.}
-Brief description
+Once a student is registered, he must to upload his CV for make himself available for the internships, he can find the "upload CV" form in his personal area.
+First he must to upload the .pdf file of the CV, then S\&C start to ask him about his personal experiences, skills and attitudes with specially designed questionnaires.
+During this process if the student upload CV with wrong file format or insert some invalid parameters in questionnaires, S\&C redirect him to the previous questionnaire showing an error message. 
 
 \begin{figure}[H]
     \begin{center}
@@ -112,7 +120,9 @@ Brief description
 \end{figure}
 
 \paragraph{Publish an internship.}
-Brief description
+When a company intends to publish a new internship, it his required to input various parameters in the "publish internship" form.
+In this form, the company must specify various information regarding the project (application domain, tasks to be performed, relevant adopted technologies etc.) and terms offered by companies (for example, some company might offer paid internships and/or provide both tangible and intangible benefits, such as training etc.). 
+S\&C checks the completeness of the data inserted and if it is incomplete, redirect the CP to the "publish internship" form showing an error message.
 
 \begin{figure}[H]
     \begin{center}
@@ -123,7 +133,9 @@ Brief description
 \end{figure}
 
 \paragraph{Search for an internship.}
-Brief description
+Students can use the search bar in their Home Page to search for a specific internship by entering a name or keyword. When a search query is entered, S\&C will present a list of internships whose names contain the specified keyword.
+Students can click on a particular internship from the search results and S\&C redirect them to the page that contain the internship detailed information and the "apply" button.
+
 
 \begin{figure}[H]
     \begin{center}
@@ -134,7 +146,9 @@ Brief description
 \end{figure}
 
 \paragraph{Apply for an internship.}
-Brief description
+After receiving a notification of a suggested internship or after a targeted survey, students can click on the "apply" button on the internship post to submit their request.
+S\&C will send to the company a notification about the application request and redirect the student, who perform the request to the Progress Page of the application.
+Progress Page of the application contain all the information about the current state of the application request.
 
 \begin{figure}[H]
     \begin{center}
@@ -145,7 +159,8 @@ Brief description
 \end{figure}
 
 \paragraph{Ask for a ST application.}
-Brief description
+A company can find suitable student for its internship in the Home Page. After selecting all suitable student, CP can click on the (now available) "invite" button, to send them a request of application.
+S\&C will send a notification to the interested students and redirect the company to the Progress Page of the application that contain all the information about the actual state of the application request.
 
 \begin{figure}[H]
     \begin{center}
@@ -156,7 +171,10 @@ Brief description
 \end{figure}
 
 \paragraph{Reviewing for an apply request.}
-Brief description
+Companies can review the application requests from the section dedicate or after receiving a notification. They can click on the student names to view their profiles and then reviewing their CV.
+CP can decide to accept or reject the request with the dedicated buttons. 
+If CP accept a request, S\&C will send a notification to the student and authorizes the assignment of tasks by the company.
+If CP reject the request, S\&C will send a notification to the student and also show the rejection in the progress page.
 
 \begin{figure}[H]
     \begin{center}
@@ -167,7 +185,10 @@ Brief description
 \end{figure}
 
 \paragraph{Create task for interviews.}
-Brief description
+When a CP wants to assign some task to a student, it can open the Progress Page of the student's application and click the "create task" button.
+Upon clicking button, CP has the task form and has to fill them with task's requirements, delivery instruction and deadline.
+Upon submission, S\&C will add task to the Progress Page of the application and notify the ST about new assignments.
+S\&C checks the completeness of the data inserted and if it is incomplete, redirect the CP to the task form showing an error message.
 
 \begin{figure}[H]
     \begin{center}
@@ -178,7 +199,9 @@ Brief description
 \end{figure}
 
 \paragraph{Solve tasks and questionnaires.}
-Brief description
+Once receiving new task assignments, a student can go to the Progress Page of the application and select the task he wants to perform. If the deadline is expired, student cannot select the task.
+Students perform the task and complete the questionnaire according to the delivery instructions.
+Upon submission, S\&C send a notification to the company and collect the answer.
 
 \begin{figure}[H]
     \begin{center}
@@ -189,7 +212,8 @@ Brief description
 \end{figure}
 
 \paragraph{Finalize selection.}
-Brief description
+When CP decide to finalize de selection process, it can see the list of applicant for an internship through a dedicated page and select suitable student.
+Once CP submit names of suitable student, S\&C add selected student to the internship's list and notifies both selected and rejected students.
 
 \begin{figure}[H]
     \begin{center}
@@ -200,7 +224,7 @@ Brief description
 \end{figure}
 
 \paragraph{Logout}
-Brief description
+Users can log out from their account at any time by clicking the "logout" button. Upon clicking the button, S\&C terminates the user's session and redirect him to the log in page, providing them the opportunity to rejoin the S\&C system if they want to do so.
 
 \begin{figure}[H]
     \begin{center}
@@ -213,7 +237,7 @@ Brief description
 \section{Product functions}
 \label{sec:product_functions}%
 Here are listed a summary of the main functions of the S\&C system:\\\\
-\textbf{ Sign-up:} The User submits his name, surname, email address and a new password. A confirmation mail is required to complete the process.\\\\
+\textbf{ Sign-up:} The ST submits his name, surname, email address and a new password. A confirmation mail is required to complete the process.\\\\
 \textbf{ Login:} The User sign in after typing his email and password in the login form. \\\\  
 \textbf{ Update CV:} A ST can update their data after creating a new account, including experience, skills, attitude and the resume .\\\\
 \textbf{ Publish an internship:} A CP can publish an internship proposal through  the "create new internship" section.\\\\
