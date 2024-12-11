@@ -3,19 +3,21 @@
 
 \subsection{User interfaces}
 \label{subsec:User_interfaces}%
----
+The S\&C system will be a web app accessible by different devices and form factors, with a responsive UI. The UI will be different based on the type of user, reflecting the different functionalities they need. Every user will need to insert their credentials to have access to the platform and there will be a mechanism to recover them in case of a loss. The UI will comply with accessibility standards to ensure usability for all users, including those with disabilities.
 
 \subsection{Hardware interfaces}
 \label{subsec:hardware_interfaces}%
----
+Our platform is a web app, as a consequence, it does not require any specific hardware
+interface. Users only need a device with a browser to access the website and an internet connection. Latest versions of browsers are suggested to ensure compatibility and optimal performance. The user is free to choose his device but accessing the web app from a desktop form factor is strongly recommended for the best user experience.
+
 
 \subsection{Software interfaces}
 \label{subsec:software_interfaces}%
----    
+No specific software interfaces are needed. However, a mailing system to send confirmation emails will be used to the users during the registration process. In the future, integrations with university and company tools will be possible to enhance interoperability.
 
 \subsection{Communication interfaces}
 \label{subsec:communication_interfaces}%
----
+The communication interfaces needed by the system include the HTTPS protocol for secure data transfer between the client and server. SSL/TLS certificates will ensure encrypted communication to protect user credentials and sensitive information.
 
 \section{Functional requirements}
 \label{sec:functional_requirements}%
@@ -294,43 +296,83 @@ There is a table with entry conditions, event flow, exit conditions and exceptio
 
 \section{Performance requirements}
 \label{sec:performance_requirements}%
----
 
-\newpage
+\paragraph{Number of Concurrent Users:}
+The S\&C system is expected to handle a significant number of concurrent users, based on research from similar platforms. The system architecture will be designed to scale dynamically to ensure consistent performance under heavy loads. Load testing will be conducted during development to verify this capacity.
+
+\paragraph{Data Storage and Management:}
+The system must efficiently handle large volumes of data, including:
+\begin{itemize}
+    \item Personal information of Students (ST) and Companies (CP).
+    \item Records of all Internship Listings, Applications, and Interactions between users.
+    \item Historical data for old internship offers. This information will remain stored indefinitely to allow CPs to review their previous postings and applicants.
+\end{itemize}
+To ensure scalability, a database management system with high throughput will be used. Additionally, data archiving strategies will be implemented to optimize storage for historical data without affecting performance.
+
+\paragraph{Response Time:}
+Actions executed directly by the S\&C system must have a response time of less than 500 milliseconds in normal conditions. Operations involving external services such as email systems may experience delays depending on the response times of those services. In case of a slow internet connection on the user's side, performance might degrade..
+
 \section{Design constraints}
 \label{sec:design_constraints}%
 
 \subsection{Standard compliance}
 \label{subsec:standard compliance}%%
----
+The system must be compliant with the following standards and regulations:
+\begin{itemize}
+    \item EU's GDPR (General Data Protection Regulation), a set of regulations that is designed in order to protect the personal data, the privacy and security of the EU's citizens.
+    \item WCAG (Web Content Accessibility Guidelines): The user interface will follow WCAG 2.1 Level AA guidelines to ensure accessibility for users with disabilities. This includes providing text alternatives for non-text content, keyboard navigation support, and ensuring sufficient contrast in the UI design.
+\end{itemize}
 
 \subsection{Hardware limitations}
 \label{subsec:hardware_limitations}%
----
-
-\subsection{Any other constraint}
-\label{subsec:any_other_constraint}%
----
+The platform is designed as a web application and does not require specific hardware. The users must have a device with a modern web browser and a reliable internet connection with a minimum recommended speed of 2 Mbps to ensure a smooth experience.
 
 \section{Software system attributes}
 \label{sec:software_system_attributes}%
 
 \subsection{Reliability}
 \label{subsec:reliability}%
----
+The system has to be reliable because it will have to run continuously for a long period
+of time. To ensure this feature the platform must have:
+\begin{itemize}
+    \item Some sort of replication and consistency policy to avoid system crash.
+    \item Offline backups of the system in multiple locations to recover information after data loss or catastrophic failures.
+    \item A monitoring system that alerts administrators in case of problems.
+\end{itemize}
 
 \subsection{Availability}
 \label{subsec:availability}%
----
+The most important attribute that the system has to provide is the availability. The
+system should have an availability of 99\% to not interfere with users’ activities. To achieve this:
+\begin{itemize}
+    \item Replication policies must be implemented and a single point of failure should be avoided.
+    \item Maintenance should be scheduled during low traffic periods (e.g., late-night) and notify users in advance.
+    \item The recommendation algorithm should be optimized to run primarily during low-load hours, minimizing the impact on system performance during peak usage.
+\end{itemize}
 
 \subsection{Security}
 \label{subsec:security}%
----
+To protect user data and system integrity. The system must implement:
+\begin{itemize}
+    \item Authentication and authorization mechanisms, ensuring that only verified users can access the platform and perform actions based on their roles.
+    \item Encryption for all sensitive data and communications between the client and server.
+    \item Protection against common web vulnerabilities.
+    \item Logging and monitoring of suspicious activities, such as repeated failed login attempts or unauthorized access attempts.
+\end{itemize}
 
 \subsection{Maintainability}
 \label{subsec:maintainability}%
----
+To ensure maintainability of the system the following actions are required:
+\begin{itemize}
+    \item Fllow modular and reusable design principles, ensuring that individual components can be updated or replaced without affecting the entire system.
+    \item The code has to be well documented.
+    \item A testing routine has to be provided and it has to cover at least 75\% of the entire code excluding the UI code.
+\end{itemize}
 
 \subsection{Portability}
 \label{subsec:portability}%
----
+The system should be portable, ensuring access across different platforms and environments.
+\begin{itemize}
+    \item Client-side the platform must be compatible with modern web browsers on both desktop and mobile devices.
+    \item Server-side the backend should be deployable on multiple hosting environments, such as on-premises servers or cloud platforms without significant modifications. To ease this, use of containerization technologies is suggested.
+\end{itemize}
