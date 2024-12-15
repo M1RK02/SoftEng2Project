@@ -32,11 +32,9 @@ The communication interfaces needed by the system include the HTTPS protocol for
         \hline
         \textbf{ID} & \textbf{Description}\\
         \hline
-        R\creq & {S\&C allows STs to register by providing personal information, email, and a password.}\\
+        R\creq & {The system allows STs to register by providing personal information, email, and a password.}\\
         \hline
         R\creq & {The system shall allow Users to log in using their credentials.}\\
-        \hline
-        R\creq & {The system shall provide a password recovery mechanism via email in case of forgotten credentials.}\\
         \hline
         R\creq & {The system shall allow STs to edit their profiles, including personal details and contact information.}\\
         \hline
@@ -74,10 +72,8 @@ The communication interfaces needed by the system include the HTTPS protocol for
         \hline
         R\creq & {The system shall maintain a database of all internships, applications, and evaluations.}\\
         \hline
-        R\creq & {The system shall allow administrators to manage and monitor user accounts, including blocking or removing users violating the terms of use.}\\
-        \hline
         \caption{Requirements.}
-        \label{tab: req}%
+        \label{tab: requirements}%
     \end{longtable}
 \end{center}
 
@@ -86,9 +82,41 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{UseCaseDiagrams/ESEMPIO_UseCases.png}
-        \caption{Use Cases Diagram for Unregistered Users.} 
-        \label{fig:UnregisteredUC}%
+        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/UC_User.png}
+        \caption{Use Cases Diagram for all users.} 
+        \label{fig:UserUC}%
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/UC_Student.png}
+        \caption{Use Cases Diagram for students.} 
+        \label{fig:StudentUC}%
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/UC_Company.png}
+        \caption{Use Cases Diagram for companies.} 
+        \label{fig:CompanyUC}%
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/UC_University.png}
+        \caption{Use Cases Diagram for universities.} 
+        \label{fig:UniversityUC}%
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/UC_SeC.png}
+        \caption{Use Cases Diagram for S\&C.} 
+        \label{fig:SeCUC}%
     \end{center}
 \end{figure}
 
@@ -144,118 +172,84 @@ There is a table with entry conditions, event flow, exit conditions and exceptio
 
 \subsection{Requirement mapping}
 \label{subsec:requirement_mapping}%
-\textbf{G1 - Allow an ED to create a Tournament.}
+\textbf{G1 - Allow companies to post their internship opportunities.}
 \begin{itemize}
-    \item R1: CKB allows unregistered Users to sign up.
-    \item R2: CKB allows registered EDs to login.
-    \item R4: CKB allows EDs to create Tournaments.
-    \item R5: CKB allows EDs to grant the permissions of a Tournament to other EDs.
-    \item R15: CKB allows EDs to choose which Badges to award in a certain Tournament.
-    \item R17: CKB allows EDs to close a Tournament.
-    \item R27: CKB sends notifications to every ST when a new Tournament is created.
-    \item R50: CKB sends notifications to the ED when he receives the permission to create Battles in a Tournament.
+    \item R2: The system shall allow Users to log in using their credentials.
+    \item R4: The system shall enforce role-based access control to restrict access to specific functionalities based on the user type (ST, CP, UV).
+    \item R5: The system shall allow CPs to post new internship opportunities, including position details, required skills, duration, and compensation.
+    \item R20: The system shall maintain a database of all internships, applications, and evaluations.
 \end{itemize}
 
 \vspace{1.5cm}
-\textbf{G2 - Allow a ST to subscribe to a specific Tournament before the registration deadline.}
+\textbf{G2 - Allow students to search for available internships.}
 \begin{itemize}
-    \item R1: CKB allows unregistered Users to sign up.
-    \item R3: CKB allows registered STs to login.
-    \item R20: CKB allows STs to join a Tournament.
-    \item R39: CKB allows STs to check the list of ongoing Tournaments.
-    \item R43: CKB sends notification to every ST involved in a Tournament when the Tournament is closed and the final ranks are available.
-    \item R46: CKB shall communicate with the mailing system in order to allow Users to register their account.
-\end{itemize}
-
-
-\vspace{1.5cm}
-\textbf{G3 - Allow an ED to create a Battle.}
-\begin{itemize}
-    \item R6: CKB allows EDs to create Battles.
-    \item R7: CKB allows EDs to uploads the code kata of a Battle.
-    \item R8: CKB allows EDs to set the minimum and the maximum number of STs per group of a Battle.
-    \item R9: CKB allows EDs to set a registration deadline of a Battle.
-    \item R10: CKB allows EDs to set a submission deadline of a Battle.
-    \item R11: CKB allows EDs to set additional configuration for the scoring system of a Battle.
-    \item R12: CKB allows EDs to set functional aspects for the scoring system of a Battle.
-    \item R16: CKB allows EDs to assign a score manually during the consolidation stage.
-    \item R28: CKB sends notifications when a new Battle is created to every ST which is participating in the Tournament that the Battle is part of.
-    \item R30: CKB creates a GH repository of the code kata when the registration deadline for the Battle expires.
-    \item R31: CKB sends the link of the GH repository to every STG that participates in the Battle.
-    \item R32: CKB evaluates the STG's work every time a push is made on GH and calculates Battle score for the STG.
-    \item R33: CKB updates the Battle Leaderboard once a new score is registered.
-    \item R46: CKB shall communicate with the mailing system in order to allow Users to register their account.
-\end{itemize}
-
-
-\vspace{1.5cm}
-\textbf{G4 - Allow any User to visualize the profile of other Users and their Badges.}
-\begin{itemize}
-    \item R18: CKB allows EDs to visualize the profile of another User.
-    \item R19: CKB allows STs to visualize the profile of another User.
-    \item R25: CKB stores the information about the Users.
-    \item R26: CKB shall ensure security of data. 
-\end{itemize}
-
-
-\vspace{1.5cm}
-\textbf{G5 - Allow a ST to subscribe to a specific Battle before the registration deadline.}
-\begin{itemize}
-    \item R21: CKB allows STs to join a Battle.
-    \item R22: CKB allows STs to create a new STG.
-    \item R23: CKB allows STs to join a STG.
-    \item R24: CKB allows STs to invite other STs in their STG.
-    \item R29: CKB sends notifications to a ST when he receives an invitation to be part of STG.
-    \item R31: CKB sends the link of the GH repository to every STG that participates in the Battle.
-\end{itemize}
-
-
-\vspace{1.5cm}
-\textbf{G6 - Allow STs to submit their code before the submission deadline.}
-\begin{itemize}
-    \item R16: CKB allows EDs to assign a score manually during the consolidation stage.
-    \item R32: CKB evaluates the STG's work every time a push is made on GH and calculates Battle score for the STG.
-    \item R33: CKB updates the Battle Leaderboard once a new score is registered.
-    \item R34: CKB updates the Tournament Leaderboard once a new score is registered.
-    \item R37: CKB allows EDs to analyze the code of a STG.
-    \item R38: CKB sends notification to every ST involved in a Tournament when the Tournament is closed and the final ranks are available.
-    \item R44: CKB shall communicate with the GH API in order to calculate a new score every time a push action is made by a STG.
-    \item R45: CKB shall communicate with the external tool in order to calculate the score of a STG.
-    \item R47: STs need to fork the GH repository of the Battle they are participating in.
-    \item R48: STs need to push their code in the GH repository in order to have their code evaluated.
-\end{itemize}
-
-
-\vspace{1.5cm}
-\textbf{G7 - Allow an ED to set Badges for deserving STs.}
-\begin{itemize}
-    \item R13: CKB allows EDs to create new Badges.
-    \item R14: CKB allows EDs to choose the rules related to the awarding of Badges.
-    \item R15: CKB allows EDs to choose which Badges to award in a certain Tournament.
-    \item R49: CKB shall assign the Badges to all STs that fulfill their requirements.
-\end{itemize}
-
-
-\vspace{1.5cm}
-\textbf{G8 - Allow any User to view the result and the progress of a Tournament.}
-\begin{itemize}
-    \item R34: CKB updates the Tournament Leaderboard once a new score is registered.
-    \item R40: CKB allows EDs to check the list of ongoing Tournaments.
-    \item R41: CKB allows STs to check the Leaderboard of a Tournaments.
-    \item R42: CKB allows EDs to check the Leaderboard of a Tournaments.
-    \item R43: CKB sends notification to every ST involved in a Tournament when the Tournament is closed and the final ranks are available.
-\end{itemize}
-
-
-\vspace{1.5cm}
-\textbf{G9 - Allow any User to view the results of a Battle.}
-\begin{itemize}
-    \item R33: CKB updates the Battle Leaderboard once a new score is registered.
-    \item R35: CKB allows STs to check the Leaderboard of a Battle.
-    \item R36: CKB allows EDs to check the Leaderboard of a Battle.
+    \item R1: The system allows STs to register by providing personal information, email, and a password.
+    \item R2: The system shall allow Users to log in using their credentials.
+    \item R3: The system shall allow STs to edit their profiles, including personal details and contact information.
+    \item R16: The system shall allow STs to search for internships using keywords, filters, or location.
+    \item R17: The system shall recommend internships to STs based on their skills, preferences, and past applications.
 \end{itemize}
 
 \vspace{1.5cm}
+\textbf{G3 - Notify students when an internship that might be of interest to them is posted.}
+\begin{itemize}
+    \item R12: The system shall send notifications to users for events such as application submissions, approvals, or rejections.
+    \item R17: The system shall recommend internships to STs based on their skills, preferences, and past applications.
+\end{itemize}
+
+\vspace{1.5cm}
+\textbf{G4 - Notify companies when a student matching their needs becomes available.}
+\begin{itemize}
+    \item R6: The system shall allow STs to apply for internships by submitting a CV and optional cover letter.
+    \item R7: The system shall notify CPs when STs apply to an internship.
+    \item R18: The system shall recommend STs to CPs for specific internships based on their skills, preferences, and past applications.
+\end{itemize}
+
+\vspace{1.5cm}
+\textbf{G5 - Provide tools for both companies and students to manage the selection process.}
+\begin{itemize}
+    \item R2: The system shall allow Users to log in using their credentials.
+    \item R8: The system shall allow CPs to review applications and schedule interviews with STs.
+    \item R9: The system shall allow CPs to submit questionnaires to STs.
+    \item R10: The system shall allow CPs to accept or reject applications and notify STs of the decision.
+    \item R19: The system shall allow CPs to search for suitable STs based on their skills, academic background, and CVs.
+\end{itemize}
+
+\vspace{1.5cm}
+\textbf{G6 - Collect feedback from students and companies to improve the matchmaking process.}
+\begin{itemize}
+    \item R2: The system shall allow Users to log in using their credentials.
+    \item R13: The system shall allow CPs to track the progress of STs during the internship and provide regular feedback.
+    \item R14: The system shall allow CPs to evaluate the performance of STs at the end of the internship.
+    \item R15: The system shall allow UVs to review the feedback and evaluation provided by both CPs and STs.
+\end{itemize}
+
+\vspace{1.5cm}
+\textbf{G7 - Provide suggestions for companies to improve internship descriptions and for students to improve their resumes.}
+\begin{itemize}
+    \item R4: The system shall enforce role-based access control to restrict access to specific functionalities based on the user type (ST, CP, UV).
+    \item R17: The system shall recommend internships to STs based on their skills, preferences, and past applications.
+    \item R18: The system shall recommend STs to CPs for specific internships based on their skills, preferences, and past applications.
+\end{itemize}
+
+\vspace{1.5cm}
+\textbf{G8 - Allow all parties to monitor the status of the matchmaking process and the assigned internship.}
+\begin{itemize}
+    \item R2: The system shall allow Users to log in using their credentials.
+    \item R13: The system shall allow CPs to track the progress of STs during the internship and provide regular feedback.
+    \item R20: The system shall maintain a database of all internships, applications, and evaluations.
+\end{itemize}
+
+\vspace{1.5cm}
+\textbf{G9 - Allow universities to monitor internships and handle any problems.}
+\begin{itemize}
+    \item R2: The system shall allow Users to log in using their credentials.
+    \item R11: The system shall allow UVs to manage their students and monitor their activity.
+    \item R12: The system shall send notifications to users for events such as application submissions, approvals, or rejections.
+    \item R15: The system shall allow UVs to review the feedback and evaluation provided by both CPs and STs.
+\end{itemize}
+
+\vspace{2cm}
 \newcounter{rtt}
 \setcounter{rtt}{1}
 \newcommand{\crt} {\thertt\stepcounter{rtt}}
@@ -263,61 +257,30 @@ There is a table with entry conditions, event flow, exit conditions and exceptio
      \begin{longtable}{|l|c|c|c|c|c|c|c|c|c|}
     \hline
     \textbf{Requirements} & \textbf{G1} & \textbf{G2} & \textbf{G3} & \textbf{G4} & \textbf{G5} & \textbf{G6} & \textbf{G7} & \textbf{G8} & \textbf{G9}\\ \hline
-    R\crt & \checkmark & \checkmark &  &  &  &  &  &  &  \\ \hline
-    R\crt & \checkmark &  &  &  &  &  &  &  &  \\ \hline
-    R\crt &  & \checkmark &  &  &  &  &  &  &  \\ \hline
-    R\crt & \checkmark &  &  &  &  &  &  &  &  \\ \hline
-    R\crt & \checkmark &  &  &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  &  &  &  &  & \checkmark &  &  \\ \hline
-    R\crt &  &  &  &  &  &  & \checkmark &  &  \\ \hline
-    R\crt &\checkmark  &  &  &  &  &  & \checkmark &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &\checkmark  &  &  &  &  &  &  &  &  \\ \hline
-    R\crt &  &  &  & \checkmark &  &  &  &  &  \\ \hline
-    R\crt &  &  &  & \checkmark &  &  &  &  &  \\ \hline
-    R\crt &  & \checkmark &  &  &  &  &  &  &  \\ \hline
-    R\crt &  &  &  &  & \checkmark &  &  &  &  \\ \hline
-    R\crt &  &  &  &  & \checkmark &  &  &  &  \\ \hline
-    R\crt &  &  &  &  & \checkmark &  &  &  &  \\ \hline
-    R\crt &  &  &  &  & \checkmark &  &  &  &  \\ \hline
-    R\crt &  &  &  & \checkmark &  &  &  &  &  \\ \hline
-    R\crt &  &  &  & \checkmark &  &  &  &  &  \\ \hline
-    R\crt & \checkmark &  &  &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  &  &  & \checkmark &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  & \checkmark &  &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &  &  & \checkmark &  &  & \checkmark &  &  & \checkmark \\ \hline
-    R\crt &  &  &  &  &  & \checkmark &  & \checkmark &  \\ \hline
-    R\crt &  &  &  &  &  &  &  &  & \checkmark \\ \hline
-    R\crt &  &  &  &  &  &  &  &  & \checkmark \\ \hline
-    R\crt &  &  &  &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &  &  &  &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &  & \checkmark &  &  &  &  &  &  &  \\ \hline
-    R\crt &  &  &  &  &  &  &  & \checkmark &  \\ \hline
-    R\crt &  &  &  &  &  &  &  & \checkmark &  \\ \hline
-    R\crt &  &  &  &  &  &  &  & \checkmark &  \\ \hline
-    R\crt &  &  \checkmark&  &  &  &  &  & \checkmark &  \\ \hline
-    R\crt &  &  &  &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &  &  &  &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &  &  \checkmark& \checkmark &  &  &  &  &  &  \\ \hline
-    R\crt &  &  &  &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &  &  &  &  &  & \checkmark &  &  &  \\ \hline
-    R\crt &  &  &  &  &  &  & \checkmark &  &  \\ \hline
-    R\crt & \checkmark &  &  &  &  &  &  &  &   \\ \hline
+    R1 &  & \checkmark  &  &  &  &  &  &  &  \\ \hline
+    R2 & \checkmark & \checkmark & & & \checkmark & \checkmark & & \checkmark & \checkmark \\ \hline
+    R3 &  & \checkmark &  &  &  &  &  &  &  \\ \hline
+    R4 & \checkmark &  &  &  &  &  & \checkmark &  &  \\ \hline
+    R5 & \checkmark &  &  &  &  &  &  &  &  \\ \hline
+    R6 &  &  &  & \checkmark &  &  &  &  &  \\ \hline
+    R7 &  &  &  & \checkmark &  &  &  &  &  \\ \hline
+    R8 &  &  &  &  & \checkmark &  &  &  &  \\ \hline
+    R9 &  &  &  &  & \checkmark &  &  &  &  \\ \hline
+    R10 &  &  &  &  & \checkmark &  &  &  &  \\ \hline
+    R11 &  &  &  &  &  &  &  &  & \checkmark \\ \hline
+    R12 &  &  & \checkmark &  &  &  &  &  & \checkmark \\ \hline
+    R13 &  &  &  &  &  & \checkmark &  & \checkmark &  \\ \hline
+    R14 &  &  &  &  &  & \checkmark &  &  &  \\ \hline
+    R15 &  &  &  &  &  & \checkmark &  &  & \checkmark \\ \hline
+    R16 &  & \checkmark &  &  &  &  &  &  &  \\ \hline
+    R17 &  & \checkmark & \checkmark &  &  &  & \checkmark &  &  \\ \hline
+    R18 &  &  &  & \checkmark &  &  & \checkmark &  &  \\ \hline
+    R19 &  &  &  &  & \checkmark &  &  &  &  \\ \hline
+    R20 & \checkmark &  &  &  &  &  &  & \checkmark &  \\ \hline
 \caption{Traceability Matrix for Goals and Requirements}
 \label{tab:traceability}
 \end{longtable}
 \end{center}
-
 
 \section{Performance requirements}
 \label{sec:performance_requirements}%
