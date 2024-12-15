@@ -8,7 +8,7 @@
 % Copyright 2021 Politecnico di Milano, Italy. Inc. All rights reserved
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ConfigurationFiles/configuration}[2021/6/30 PoliMi3i thesis submission class]
+\ProvidesClass{ConfigurationFiles/PoliMi3i_Thesis}[2021/6/30 PoliMi3i thesis submission class]
 \ProcessOptions\relax
 
 %--------------------------------------------------------------------------
@@ -68,7 +68,7 @@
             \vfill
             \centering
             \transparent{0.4}
-            \includegraphics[width=0.85\paperwidth]{RASD/LaTeX/Images/raggiera_polimi.eps}
+            \includegraphics[width=0.85\paperwidth]{Images/Configuration/Raggiera_Polimi}
             \vfill
         }}}
 
@@ -79,7 +79,7 @@
             \vfill
             \centering
             \transparent{0.4}
-            \includegraphics[width=0.70\paperwidth]{RASD/LaTeX/Images/raggiera_polimi.eps}
+            \includegraphics[width=0.70\paperwidth]{Images/Configuration/Raggiera_Polimi}
             \vfill
         }}}
 
@@ -92,6 +92,8 @@
 \define@key[OIST]{title}{name2}{\def\nameB{#1}}
 \define@key[OIST]{title}{name3}{\def\nameC{#1}}
 \define@key[OIST]{title}{academicyear}{\def\academicyear{#1}}
+\define@key[OIST]{title}{version}{\def\version{#1}}
+\define@key[OIST]{title}{releasedate}{\def\releasedate{#1}}
 
 \providecommand{\puttitle}{}
 \renewcommand{\puttitle}[1]{
@@ -106,7 +108,7 @@
         \AddToShipoutPicture*{\BackgroundPicTR}
         \vfill
         \begin{minipage}{0.95\textwidth}
-            \includegraphics[trim={1.2cm 0 0 0},clip, width=0.7\textwidth]{RASD/LaTeX/Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO.eps}
+            \includegraphics[trim={1.2cm 0 0 0},clip, width=0.7\textwidth]{Images/Configuration/Ing_Ind_Informazione_Col_Positivo.eps}
             \hfill
             \\
             \vspace{2.5cm}
@@ -125,6 +127,14 @@
         \begin{minipage}{0.85\textwidth}
             \normalsize{
                 Academic Year: {\academicyear}
+            }
+            \\
+            \normalsize{
+                Version:   {\version}
+            }
+            \\
+            \normalsize{
+                Release date:    {\releasedate}
             }
         \end{minipage}
     \end{titlepage}

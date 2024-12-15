@@ -1,5 +1,4 @@
-\documentclass{ConfigurationFiles/PoliMi3i_thesis}
-
+\documentclass{ConfigurationFiles/PoliMi3i_Thesis}
 
 % CONFIGURATIONS
 \usepackage{parskip} % For paragraph layout
@@ -55,7 +54,6 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
-
 % PACKAGES FOR REFERENCES & BIBLIOGRAPHY
 \usepackage[
     colorlinks=true,
@@ -80,12 +78,11 @@
 \usepackage{rotating}
 \usepackage{listings}
 \usepackage{hyperref}
-\input{ConfigurationFiles/alloy.sty}
+\input{ConfigurationFiles/Alloy.sty}
 \fancyhf{}
 
-% Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
-\input{ConfigurationFiles/config}
-
+% Input of configuration file. Do not change Config.tex file unless you really know what you are doing. 
+\input{ConfigurationFiles/Config}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -108,17 +105,9 @@
     tabsize=3
 }
 
-
-
-
-
-
-
-%----------------------------------------------------------------------------
+%-------------------------------------------------------------------------
 %	BEGIN OF YOUR DOCUMENT
-%----------------------------------------------------------------------------
-
-
+%-------------------------------------------------------------------------
 
 \begin{document}
     \fancypagestyle{plain}{%
@@ -126,7 +115,6 @@
         \fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
         \renewcommand{\headrulewidth}{0pt}
         \renewcommand{\footrulewidth}{0pt}}
-
         
     \pagestyle{empty} % No page numbers
     \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
@@ -141,10 +129,8 @@
         releasedate=22/12/2024,
           }
     
-    
     \startpreamble
     \setcounter{page}{1} % Set page counter to 1
-
 
 % TABLE OF CONTENTS
     \thispagestyle{empty}
@@ -152,35 +138,28 @@
     \thispagestyle{empty}
     \cleardoublepage
 
-    
     \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
     \mainmatter % Begin numeric (1,2,3...) page numbering
-
 
     \chapter{Introduction}
     \label{ch:introduction}%
     \input{Chapters/1_Introduction}
 
-
     \chapter{Overall Description}
     \label{ch:overall_description}%
     \input{Chapters/2_Overall_Description}
-
 
     \chapter{Specific Requirements}
     \label{ch:specific_requirements}%
     \input{Chapters/3_Specific_Requirements}
 
-
     \chapter{Formal Analysis Using Alloy}
     \label{ch:formal_analysis_using_alloy}%
     \input{Chapters/4_Formal_Analysis_Using_Alloy}
 
-
     \chapter{Effort Spent}
     \label{ch:effort_spent}%
     \input{Chapters/5_Effort_Spent}
-
 
     \chapter{References}
     \label{ch:references}%
@@ -192,6 +171,5 @@
 % LIST OF TABLES
     \listoftables
     \cleardoublepage
-
 
 \end{document}
