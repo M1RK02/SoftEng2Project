@@ -82,7 +82,7 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/UC_User.png}
+        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/User.png}
         \caption{Use Cases Diagram for all users.} 
         \label{fig:UserUC}%
     \end{center}
@@ -90,7 +90,7 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/UC_Student.png}
+        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/Student.png}
         \caption{Use Cases Diagram for students.} 
         \label{fig:StudentUC}%
     \end{center}
@@ -98,7 +98,7 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/UC_Company.png}
+        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/Company.png}
         \caption{Use Cases Diagram for companies.} 
         \label{fig:CompanyUC}%
     \end{center}
@@ -106,7 +106,7 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/UC_University.png}
+        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/University.png}
         \caption{Use Cases Diagram for universities.} 
         \label{fig:UniversityUC}%
     \end{center}
@@ -114,7 +114,7 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/UC_SeC.png}
+        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/SeC.png}
         \caption{Use Cases Diagram for S\&C.} 
         \label{fig:SeCUC}%
     \end{center}
@@ -126,47 +126,337 @@ The communication interfaces needed by the system include the HTTPS protocol for
 \newcounter{uc}
 \setcounter{uc}{1}
 \newcommand{\cuc}{\theuc\stepcounter{uc}}
-In this section, they are explained and represented the main identified use cases.\\
-There is a table with entry conditions, event flow, exit conditions and exception for each of them, and a sequence diagram that shows the messages exchanged between the entities and the called functions. \\
+This section explains the main use cases and how they work. It includes a table for each use case that shows the starting conditions, steps involved, ending conditions, and any exceptions. There's also a sequence diagram that illustrates the messages exchanged between different entities and the functions that are called. \\
 
-
-\subsubsection*{UC\cuc . Signup as ED}
+\subsubsection*{UC\cuc . Log in to the system}
 \begin{center}
     \begin{longtable}{|l|p{0.75\linewidth}|}
         \hline
-        \textbf{Actor}            & ED, eMail provider\\
+        \textbf{Actor}            & Student (ST), Company (CP), University (UV) \\
         \hline
-        \textbf{Entry conditions} & The ED is not already registered in CKB and has to search the CKB URL in the browser search bar \\
+        \textbf{Entry conditions} & The user has valid credentials (email and password) and access to S\&C's login page. \\
         \hline
-        \textbf{Event Flow}       & 1 - CKB shows the login form.  \\
-        & 2 - The ED clicks on “Create an Account” button.   \\
-        & 3 - CKB shows the signup form.    \\
-        & 4 - The ED inserts his name, surname, nickname, eMail and password in the form and also ticks on the “Signup as Educator” checkbox.  \\
-        & 5 - The ED clicks on the “Register” button.  \\
-        & 6 - CKB checks all the credentials.  \\
-        & 7 - If credentials are correct CKB sends a confirmation eMail to the ED through the eMail provider.  \\
-        & 8 - The ED clicks on the confirmation link.    \\
+        \textbf{Event Flow}       & 1 - The user navigates to the login page. \\
+                                  & 2 - The user inputs their email and password. \\
+                                  & 3 - S\&C validates the credentials. \\
+                                  & 4 - The user is redirected to their respective dashboard. \\
         \hline
-        \textbf{Exit condition}   & CKB allows the ED to access to the CKB system. \\       
+        \textbf{Exit condition}   & The user is logged into S\&C and has access to their dashboard. \\       
         \hline
-        \textbf{Exceptions}       & \begin{itemize}
-            \item The eMail address is already linked to an account. In this case an error message is shown and the ED is redirected to the profile creation settings.
-            \item Invalid password if it is shorter than 8 characters, if it doesn’t have at least 1 number and/or 1 capital letter and/or a special character. In this case an error message is shown and the ED is redirected to the profile creation settings.
-            \item  The nickname is already used. An error is shown and the ED is redirected to the profile creation settings.
-        \end{itemize}\\
+        \textbf{Exceptions}       & - Incorrect email or password: The system displays an error message. \\
+                                  & - System unavailable: S\&C informs the user and retries later. \\
         \hline
-        \caption{Signup as ED use case.}
-        \label{tab:signup_as_ED_use_case}
+        \caption{Log in to the system}
+        \label{tab:login_usecase}
     \end{longtable}
 \end{center}
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{SequenceDiagrams/ESEMPIO_Sequence.png}
-        \caption{Signup as ED sequence diagram.}
-        \label{fig:signup_as_ED_seqd}%
+        \includesvg[width=\textwidth]{SequenceDiagrams/Login.svg}
+        \caption{Log in to the system sequence diagram.}
+        \label{fig:login_seqd}%
     \end{center}
 \end{figure}
+
+\subsubsection*{UC\cuc . Log out from the system}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST), Company (CP), University (UV) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C and has access to their dashboard. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user clicks the "Log Out" button. \\
+                                  & 2 - S\&C invalidates the user's session. \\
+                                  & 3 - S\&C redirects the user to the login page. \\
+        \hline
+        \textbf{Exit condition}   & The user is logged out of S\&C and redirected to the login page. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Log out from the system}
+        \label{tab:logout_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=0.8\textwidth]{SequenceDiagrams/Logout.svg}
+        \caption{Log out from the system sequence diagram.}
+        \label{fig:logout_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . Register an account to S\&C}
+TODO
+
+\subsubsection*{UC\cuc . View and update their profile}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The student is logged into S\&C. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the profile section. \\
+        & 2 - The user views their profile details. \\
+        & 3 - The user updates specific fields (e.g., contact info, skills, CV). \\
+        & 4 - S\&C validates the changes. \\
+        & 5 - S\&C saves the updated profile. \\
+        \hline
+        \textbf{Exit condition}   & The user's profile is updated and saved successfully. \\       
+        \hline
+        \textbf{Exceptions}       & - Invalid data: S\&C prompts the user to correct the information. \\
+                                  & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{View and update their profile}
+        \label{tab:view_update_profile_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=0.8\textwidth]{SequenceDiagrams/View_And_Update.svg}
+        \caption{View and update profile sequence diagram.}
+        \label{fig:view_update_profile_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . Search for internships}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the internships section. \\
+        & 2 - The user searches (e.g. by keywords, location, filters). \\
+        & 3 - S\&C processes the search and retrieves results. \\
+        & 4 - The user views the list of available internships. \\
+        \hline
+        \textbf{Exit condition}   & The user views relevant internship opportunities. \\       
+        \hline
+        \textbf{Exceptions}       & - No results: S\&C informs the user that no internships match the criteria. \\
+                                  & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Search for internships}
+        \label{tab:search_internships_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=0.8\textwidth]{SequenceDiagrams/Search_Internships.svg}
+        \caption{Search for internships sequence diagram.}
+        \label{fig:search_internships_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . Apply for an internship}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C and has selected an internship. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the internship details page. \\
+        & 2 - The user clicks the "Apply" button. \\
+        & 3 - S\&C validates the user's eligibility. \\
+        & 4 - S\&C submits the application. \\
+        & 5 - S\&C confirms the application to the user. \\
+        \hline
+        \textbf{Exit condition}   & The user's application is successfully submitted. \\       
+        \hline
+        \textbf{Exceptions}       & - Not eligible: S\&C notifies the user with the reason for ineligibility (e.g. does not have the necessary skills). \\
+                                  & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Apply for an internship}
+        \label{tab:apply_internship_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=0.8\textwidth]{SequenceDiagrams/Apply_Internship.svg}
+        \caption{Apply for an internship sequence diagram.}
+        \label{fig:apply_internship_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . Monitor the status of their applications}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C and has submitted at least one application. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the "My Applications" section. \\
+        & 2 - S\&C retrieves the status of all submitted applications. \\
+        & 3 - The user views the list of applications and their statuses. \\
+        \hline
+        \textbf{Exit condition}   & The user views the status of their applications. \\       
+        \hline
+        \textbf{Exceptions}       & - No applications: S\&C informs the user that no applications have been submitted. \\
+                                  & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Monitor the status of their applications}
+        \label{tab:monitor_status_applications_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=1\textwidth]{SequenceDiagrams/Monitor_Status.svg}
+        \caption{Monitor the status of their applications sequence diagram.}
+        \label{fig:monitor_status_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . Accept or reject internship offers}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C and has received at least one internship offer. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the "Offers" section. \\
+        & 2 - S\&C retrieves the list of received offers. \\
+        & 3 - The user selects an offer to review. \\
+        & 4 - The user chooses to accept or reject the offer. \\
+        & 5 - S\&C updates the offer status. \\
+        \hline
+        \textbf{Exit condition}   & The offer status is updated as accepted or rejected. \\       
+        \hline
+        \textbf{Exceptions}       & - Offer expired: S\&C notifies the user. \\
+                                  & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Accept or reject internship offers}
+        \label{tab:accept_reject_offers_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=0.8\textwidth]{SequenceDiagrams/Accept_Reject_Offers.svg}
+        \caption{Accept or reject internship offers sequence diagram.}
+        \label{fig:accept_reject_offers_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . Complete questionnaires from companies}
+TODO
+
+\subsubsection*{UC\cuc . Provide feedback on completed internships}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C and has completed at least one internship. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the "Completed Internships" section. \\
+        & 2 - S\&C retrieves the list of completed internships. \\
+        & 3 - The user selects an internship to provide feedback on. \\
+        & 4 - The user fills out the feedback form. \\
+        & 5 - S\&C saves the user's feedback. \\
+        \hline
+        \textbf{Exit condition}   & Feedback for the internship is successfully submitted. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Provide feedback on completed internships}
+        \label{tab:provide_feedback_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=1\textwidth]{SequenceDiagrams/Provide_Feedback.svg}
+        \caption{Provide feedback on completed internships sequence diagram.}
+        \label{fig:provide_feedback_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . File complaints about internships}
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C and has encountered an issue with an internship. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the "Complaints" section. \\
+        & 2 - S\&C provides the complaint form. \\
+        & 3 - The user fills out the complaint form, describing the issue. \\
+        & 4 - The user submits the complaint. \\
+        & 5 - S\&C saves and forwards the complaint to the relevant parties. \\
+        \hline
+        \textbf{Exit condition}   & The complaint is successfully filed and acknowledged by S\&C. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{File complaints about internships}
+        \label{tab:file_complaints_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=1\textwidth]{SequenceDiagrams/File_Complaints.svg}
+        \caption{File complaints about internships sequence diagram.}
+        \label{fig:file_complaints_seqd}%
+    \end{center}
+\end{figure}
+
+\subsubsection*{UC\cuc . Create and publish internships}
+TODO
+
+\subsubsection*{UC\cuc . View and manage published internships}
+TODO
+
+\subsubsection*{UC\cuc . View recommended students for internships}
+TODO
+
+\subsubsection*{UC\cuc . Contact students for internships}
+TODO
+
+\subsubsection*{UC\cuc . Accept student applications}
+TODO
+
+\subsubsection*{UC\cuc . Submit questionnaires for students}
+TODO
+
+\subsubsection*{UC\cuc . Finalize the selection process}
+TODO
+
+\subsubsection*{UC\cuc . Provide feedback on interns}
+TODO
+
+\subsubsection*{UC\cuc . File complaints about students}
+TODO
+
+\subsubsection*{UC\cuc . Monitor the status of all internships}
+TODO
+
+\subsubsection*{UC\cuc . Handle complaints from students or companies}
+TODO
+
+\subsubsection*{UC\cuc . Cancel problematic internships}
+TODO
+
+\subsubsection*{UC\cuc . Collect and review feedback from companies and students}
+TODO
+
+\subsubsection*{UC\cuc . Inform companies about available students matching their criteria}
+TODO
+
+\subsubsection*{UC\cuc . Inform students about new internship opportunities}
+TODO
 
 \newpage
 
