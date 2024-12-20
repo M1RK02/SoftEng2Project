@@ -548,10 +548,69 @@ FATTO DA MIRKO SU DRIVE
 \end{figure}
 
 \subsubsection*{UC\cuc . Submit questionnaires for students}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP)\\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C. The company wants to send questionnaires to students.\\
+        \hline
+        \textbf{Event Flow}     & 1- The company goes to a student’s application "Progress Page". \\
+                                & 2- The company click the "create task" button. \\
+                                & 3- S\&C returns the task form.\\
+                                & 4- Company fill the form with task’s requirements, delivery instruction and deadline.\\
+                                & 5-  S\&C adds task to the Progress Page of the application and notify the ST about new assignments.\\
+        \hline
+        \textbf{Exit condition}     & The company successfully add the task and the student receive the notification.\\       
+        \hline
+        \textbf{Exceptions}     & - Data inserted by the company incomplete: an error message is shown and the CP is redirected back to the task form. \\
+                                & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Submit questionnaires for students}
+        \label{tab: submit_questionnaires_for_students_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Submit_questionnaires_for_students.svg}
+        \caption{Submit questionnaires for students sequence diagram.}
+        \label{fig:submit_questionnaires_for_students_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . Finalize the selection process}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP)\\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C. The company wants to finalize the selection process.\\
+        \hline
+        \textbf{Event Flow}    & 1- The company navigates to the "Published                                                        Internships" section. \\
+                                & 2- S\&C retrieves the list of internships published by the company. \\
+                                & 3- The company selects an internship to view its details. \\
+                                & 4- S\&C retrieves internship's details and the list of applicant students.\\
+                                & 5- The company selects students.\\
+                                & 6- S\&C add selected student to the internship’s list and notifies both selected and rejected students.\\
+        \hline
+        \textbf{Exit condition}     & The company successfully select the students and all the students receive the notification.\\       
+        \hline
+        \textbf{Exceptions}     & - One student profile not existing: S\&C informs company that the profile of the selected student is no longer available.\\
+                                & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Finalize the selection process}
+        \label{tab: finalize_the_selection_process_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Finalize_the_selection_process.svg}
+        \caption{Finalize the selection process sequence diagram.}
+        \label{fig:finalize_the_selection_process_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . Provide feedback on interns}
 FATTO DA MIRKO SU DRIVE
