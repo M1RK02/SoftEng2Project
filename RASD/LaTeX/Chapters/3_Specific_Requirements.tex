@@ -189,7 +189,7 @@ This section explains the main use cases and how they work. It includes a table 
 \end{figure}
 
 \subsubsection*{UC\cuc . Register an account to S\&C}
-TODO
+FATTO DA MIRKO SU DRRIVE
 
 \subsubsection*{UC\cuc . View and update their profile}
 \begin{center}
@@ -349,7 +349,7 @@ TODO
 \end{figure}
 
 \subsubsection*{UC\cuc . Complete questionnaires from companies}
-TODO
+FATTO DA MIRKO SU DRIVE
 
 \subsubsection*{UC\cuc . Provide feedback on completed internships}
 \begin{center}
@@ -414,13 +414,71 @@ TODO
 \end{figure}
 
 \subsubsection*{UC\cuc . Create and publish internships}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP)\\
+        \hline
+        \textbf{Entry conditions} & The CP is correctly logged in. The CP has decided to create a internship. The CP is on his profile page. \\
+        \hline
+        \textbf{Event Flow}     & 1- The CP clicks on "Publish a Internship"                                button.\\
+                                & 2- S\&C returns the publish internship form.\\
+                                & 3- The CP writes the internship name, specify the application domain, tasks to be performed, relevant adopted technologies ad terms offered\\
+                                & 4- S\&C stores the data of the internship and add it to the CP's internship list\\
+                                & 5- S\&C sends a notication to the STs that might be interested.\\
+        \hline
+        \textbf{Exit condition}   & The internship is correctly created and a confirmation message is shown to the CP. \\       
+        \hline
+        \textbf{Exceptions}       & - The internship's information are not                                  correct (internship's name null or already                                exist, some parameter inserted with not correct                           format). An error message is shown and the CP                             is redirected back to the publish internship                              form.\\
+        \hline
+        \caption{Create and publish internships}
+        \label{tab: create_and_publish_internships_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Create_internship.svg}
+        \caption{Create and publish internships sequence diagram.}
+        \label{fig:create_internship_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . View and manage published internships}
-TODO
+FATTO DA MIRKO SU DRIVE
 
 \subsubsection*{UC\cuc . View recommended students for internships}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP)\\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C and has at least one published internship.\\
+        \hline
+        \textbf{Event Flow}     & 1- The company navigates to the "Published                              Internships" section. \\
+                                & 2- S\&C retrieves the list of internships published by the company. \\
+                                & 3- The company selects an internship to view its details. \\
+                                & 4- S\&C retrieves internship's details and the list of suggested students \\
+                                & 5- The company select a student to views his profile.\\
+                                & 6- S\&C redirect the company to the student's profile.\\
+        \hline
+        \textbf{Exit condition}     & The company successfully views the list of                                suggested students and, eventually, their                                 profile.\\       
+        \hline
+        \textbf{Exceptions}     & - No recommended students: S\&C informs the company that there aren't recommended students. \\
+                                & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{View recommended students for internships}
+        \label{tab: view_recommended_students_for_internships_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=\textwidth]{SequenceDiagrams/View_recommended_sudents.svg}
+        \caption{View recommended students for internships sequence diagram.}
+        \label{fig:view_recommended_students_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . Contact students for internships}
 TODO
@@ -435,10 +493,10 @@ TODO
 TODO
 
 \subsubsection*{UC\cuc . Provide feedback on interns}
-TODO
+FATTO DA MIRKO SU DRIVE
 
 \subsubsection*{UC\cuc . File complaints about students}
-TODO
+FATTO DA MIRKO SU DIVE
 
 \subsubsection*{UC\cuc . Monitor the status of all internships}
 TODO
@@ -453,10 +511,10 @@ TODO
 TODO
 
 \subsubsection*{UC\cuc . Inform companies about available students matching their criteria}
-TODO
+FATTO DA MIRKO SU DRIVE
 
 \subsubsection*{UC\cuc . Inform students about new internship opportunities}
-TODO
+FATTO DA MIRKO SU DRIVE
 
 \newpage
 
