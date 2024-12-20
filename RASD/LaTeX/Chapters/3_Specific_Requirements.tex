@@ -458,11 +458,9 @@ FATTO DA MIRKO SU DRIVE
         \textbf{Event Flow}     & 1- The company navigates to the "Published                              Internships" section. \\
                                 & 2- S\&C retrieves the list of internships published by the company. \\
                                 & 3- The company selects an internship to view its details. \\
-                                & 4- S\&C retrieves internship's details and the list of suggested students \\
-                                & 5- The company select a student to views his profile.\\
-                                & 6- S\&C redirect the company to the student's profile.\\
+                                & 4- S\&C retrieves internship's details and the list of suggested students.\\
         \hline
-        \textbf{Exit condition}     & The company successfully views the list of                                suggested students and, eventually, their                                 profile.\\       
+        \textbf{Exit condition}     & The company successfully views the list of                                suggested students.\\       
         \hline
         \textbf{Exceptions}     & - No recommended students: S\&C informs the company that there aren't recommended students. \\
                                 & - System unavailable: S\&C logs the issue and retries later. \\
@@ -481,10 +479,73 @@ FATTO DA MIRKO SU DRIVE
 \end{figure}
 
 \subsubsection*{UC\cuc . Contact students for internships}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP)\\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C. The company should be on a specific internship page to select a student’s name from the recommended students list.\\
+        \hline
+        \textbf{Event Flow}     & 1- The company click on a student's name. \\
+                                & 2- S\&C returns the profile page of the selected student. \\
+                                & 3- The company click on the "invite" button. \\
+                                & 4- S\&C sends to the student a request of application.\\
+                                & 5- S\&C redirect the company to the "Progress Page" of the application.\\
+        \hline
+        \textbf{Exit condition}     & The company successfully views profile of                                the student and sends correctly the notification.\\       
+        \hline
+        \textbf{Exceptions}     & - Student profile not existing: S\&C informs company that the profile of the selected student is no longer available. \\
+                                & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Contact students for internships}
+        \label{tab: contact_students_for_internships_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Contact_students.svg}
+        \caption{Contact students for internships sequence diagram.}
+        \label{fig:contact_students_for_internships_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . Accept student applications}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP)\\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C. The company wants to review apply requests.\\
+        \hline
+        \textbf{Event Flow}     & 1- The company navigates to the "Published                                                        Internships" section. \\
+                                & 2- S\&C retrieves the list of internships published by the company. \\
+                                & 3- The company selects an internship to view its details. \\
+                                & 4- S\&C retrieves internship's details and the list of apply requests.\\
+                                & 5- Company click on the students name.\\
+                                & 6- S\&C returns the profile page of the selected student.\\
+                                & 7- Company check the profile of the student and his CV.\\
+                                & 8- Company decide to accept or reject the apply request.\\
+                                & 9- S\&C send a notification to the student with the company’s decision.\\
+                                & 10- If the company has accepted, S\&C authorizes the assignment of tasks by the company.\\
+        \hline
+        \textbf{Exit condition}     & The company successfully accept the request and the student receive the notification.\\       
+        \hline
+        \textbf{Exceptions}     & - Student profile not existing: S\&C informs company that the profile of the selected student is no longer available. \\
+                                & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Accept student applications}
+        \label{tab: accept_student_applications_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Accept_student_applications.svg}
+        \caption{Accept student applications sequence diagram.}
+        \label{fig:accept_student_applications_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . Submit questionnaires for students}
 TODO
