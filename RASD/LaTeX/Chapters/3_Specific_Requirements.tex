@@ -173,7 +173,36 @@ This section explains the main use cases and how they work. It includes a table 
 \end{figure}
 
 \subsubsection*{UC\cuc . Register an account to S\&C}
-FATTO DA MIRKO SU DRRIVE
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user accesses the registration page of S\&C. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the registration page. \\
+        & 2 - The user provides their details (e.g., name, email, password, university). \\
+        & 3 - S\&C validates the entered data. \\
+        & 4 - S\&C creates the account and sends a confirmation email. \\
+        \hline
+        \textbf{Exit condition}   & The user receives a confirmation email and the account is created. \\       
+        \hline
+        \textbf{Exceptions}       & - Invalid data: S\&C prompts the user to correct the information. \\
+                                  & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Register an account to S\&C}
+        \label{tab:register_account_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{SequenceDiagrams/Register_Account.png}
+        \caption{Register an account sequence diagram.}
+        \label{fig:register_account_seqd}%
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{UC\cuc . View and update their profile}
 \begin{center}
@@ -334,7 +363,34 @@ FATTO DA MIRKO SU DRRIVE
 \end{figure}
 
 \subsubsection*{UC\cuc . Complete questionnaires from companies}
-FATTO DA MIRKO SU DRIVE
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Student (ST) \\
+        \hline
+        \textbf{Entry conditions} & The user is logged into S\&C and has received questionnaires by companies. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The user navigates to the received questionnaires. \\
+        & 2 - The user fills out the required fields. \\
+        & 3 - S\&C saves and submits the user's responses. \\
+        \hline
+        \textbf{Exit condition}   & The questionnaire is marked as completed. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C informs the user and retries later. \\
+        \hline
+        \caption{Complete questionnaires from companies}
+        \label{tab:complete_questionnaires_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Complete_Questionnaires.png}
+        \caption{Complete questionnaires from companies sequence diagram.}
+        \label{fig:complete_questionnaires_seqd}%
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{UC\cuc . Provide feedback on completed internships}
 \begin{center}
@@ -430,7 +486,38 @@ FATTO DA MIRKO SU DRIVE
 \end{figure}
 
 \subsubsection*{UC\cuc . View and manage published internships}
-FATTO DA MIRKO SU DRIVE
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP) \\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C and has at least one published internship. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The company navigates to the \"Published Internships\" section. \\
+        & 2 - S\&C retrieves the list of internships published by the company. \\
+        & 3 - The company selects an internship to view its details. \\
+        & 4 - The company edits, updates, or deletes the internship if needed. \\
+        & 5 - S\&C saves the changes or removes the internship. \\
+        \hline
+        \textbf{Exit condition}   & The company successfully views, updates, or deletes their published internships. \\       
+        \hline
+        \textbf{Exceptions}       & - No internships published: S\&C informs the    company that no internships are available for management. \\
+                                  & - Invalid updates: S\&C notifies the company of the errors and prompts for corrections. \\
+                                  & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{View and manage published internships}
+        \label{tab:view_manage_internships_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/View_Manage_Internships.png}
+        \caption{View and manage published internships sequence diagram.}
+        \label{fig:view_manage_internships_seqd}%
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{UC\cuc . View recommended students for internships}
 \begin{center}
@@ -598,10 +685,68 @@ FATTO DA MIRKO SU DRIVE
 \end{figure}
 
 \subsubsection*{UC\cuc . Provide feedback on interns}
-FATTO DA MIRKO SU DRIVE
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP) \\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C and has completed at least one internship with an intern. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The company navigates to the \"Feedback\" section. \\
+        & 2 - S\&C retrieves a list of interns who completed internships with the company. \\
+        & 3 - The company selects an intern to provide feedback on. \\
+        & 4 - The company fills out a feedback form, evaluating the intern's performance. \\
+        & 5 - S\&C saves and submits the feedback. \\
+        \hline
+        \textbf{Exit condition}   & Feedback for the selected intern is successfully submitted and stored. \\       
+        \hline
+        \textbf{Exceptions}       & - Feedback already submitted: S\&C informs the company that feedback for this intern has already been provided. \\
+                                  & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Provide feedback on interns}
+        \label{tab:provide_feedback_interns_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Provide_Feedback_Interns.png}
+        \caption{Provide feedback on interns sequence diagram.}
+        \label{fig:provide_feedback_interns_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . File complaints about students}
-FATTO DA MIRKO SU DIVE
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & Company (CP) \\
+        \hline
+        \textbf{Entry conditions} & The company is logged into S\&C and has had an issue with a student during an internship. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The company navigates to the \"Complaints\" section. \\
+        & 2 - S\&C provides a complaint form specific to the student. \\
+        & 3 - The company selects the student and describes the issue. \\
+        & 4 - The company submits the complaint. \\
+        & 5 - S\&C logs the complaint and forwards it to the university. \\
+        \hline
+        \textbf{Exit condition}   & The complaint is successfully filed and forwarded for review. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{File complaints about students}
+        \label{tab:file_complaints_students_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/File_Complaints_Students.png}
+        \caption{File complaints about students sequence diagram.}
+        \label{fig:file_complaints_students_seqd}%
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{UC\cuc . Monitor the status of all internships}
 TODO
@@ -616,10 +761,68 @@ TODO
 TODO
 
 \subsubsection*{UC\cuc . Inform companies about available students matching their criteria}
-FATTO DA MIRKO SU DRIVE
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & S\&C (automated process) \\
+        \hline
+        \textbf{Entry conditions} & Companies have posted internships, and students have uploaded their CV. \\
+        \hline
+        \textbf{Event Flow}       & 1 - S\&C periodically checks for new or updated student profiles. \\
+        & 2 - S\&C matches student profiles with the companies' defined requirements. \\
+        & 3 - S\&C generates a list of suitable students for each internship. \\
+        & 4 - S\&C sends a notification or email to the companies with the list of matching students. \\
+        \hline
+        \textbf{Exit condition}   & Companies are notified about students matching their criteria. \\       
+        \hline
+        \textbf{Exceptions}       & - No matching students found: S\&C informs the company that no students match their criteria at the moment. \\
+                                  & - System unavailable: S\&C logs the issue and retries the process later.\\
+        \hline
+        \caption{Inform companies about available students matching their criteria}
+        \label{tab:inform_companies_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Inform_Companies.png}
+        \caption{Inform companies about available students sequence diagram.}
+        \label{fig:inform_companies_seqd}%
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{UC\cuc . Inform students about new internship opportunities}
-FATTO DA MIRKO SU DRIVE
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & S\&C (automated process) \\
+        \hline
+        \textbf{Entry conditions} & New internships have been posted or updated by companies, and students have provided their preferences. \\
+        \hline
+        \textbf{Event Flow}       & 1 - S\&C monitors for new or updated internship postings. \\
+        & 2 - S\&C matches internship postings with student preferences. \\
+        & 3 - S\&C generates a list of suitable internships for each student. \\
+        & 4 - S\&C sends a notification to students with the list of matching internships. \\
+        \hline
+        \textbf{Exit condition}   & Students are notified about internships matching their preferences. \\       
+        \hline
+        \textbf{Exceptions}       & - No matching internships found: S\&C informs the student that no new opportunities match their preferences. \\
+                                  & - System unavailable: S\&C logs the issue and retries the process later. \\
+        \hline
+        \caption{Inform students about new internship opportunities}
+        \label{tab:inform_students_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Inform_Students.png}
+        \caption{Inform students about new internship opportunities sequence diagram.}
+        \label{fig:inform_students_seqd}%
+    \end{center}
+\end{figure}
+
 
 \newpage
 
