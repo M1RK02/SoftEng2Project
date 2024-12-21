@@ -90,31 +90,15 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/Student.png}
-        \caption{Use Cases Diagram for students.} 
-        \label{fig:StudentUC}%
+        \includegraphics[width=\linewidth]{UseCaseDiagrams/Company_Student_University.png}
+        \caption{Use Cases Diagram for company, student and university.} 
+        \label{fig:Company_Student_UniversityUC}%
     \end{center}
 \end{figure}
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/Company.png}
-        \caption{Use Cases Diagram for companies.} 
-        \label{fig:CompanyUC}%
-    \end{center}
-\end{figure}
-
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/University.png}
-        \caption{Use Cases Diagram for universities.} 
-        \label{fig:UniversityUC}%
-    \end{center}
-\end{figure}
-
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{UseCaseDiagrams/SeC.png}
+        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/SeC.png}
         \caption{Use Cases Diagram for S\&C.} 
         \label{fig:SeCUC}%
     \end{center}
@@ -217,7 +201,7 @@ FATTO DA MIRKO SU DRRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=0.8\textwidth]{SequenceDiagrams/View_And_Update.svg}
+        \includesvg[width=0.9\textwidth]{SequenceDiagrams/View_And_Update.svg}
         \caption{View and update profile sequence diagram.}
         \label{fig:view_update_profile_seqd}%
     \end{center}
@@ -248,7 +232,7 @@ FATTO DA MIRKO SU DRRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=0.8\textwidth]{SequenceDiagrams/Search_Internships.svg}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Search_Internships.svg}
         \caption{Search for internships sequence diagram.}
         \label{fig:search_internships_seqd}%
     \end{center}
@@ -280,7 +264,7 @@ FATTO DA MIRKO SU DRRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=0.8\textwidth]{SequenceDiagrams/Apply_Internship.svg}
+        \includesvg[width=0.9\textwidth]{SequenceDiagrams/Apply_Internship.svg}
         \caption{Apply for an internship sequence diagram.}
         \label{fig:apply_internship_seqd}%
     \end{center}
@@ -310,7 +294,7 @@ FATTO DA MIRKO SU DRRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=1\textwidth]{SequenceDiagrams/Monitor_Status.svg}
+        \includesvg[width=0.9\textwidth]{SequenceDiagrams/Monitor_Status.svg}
         \caption{Monitor the status of their applications sequence diagram.}
         \label{fig:monitor_status_seqd}%
     \end{center}
@@ -322,7 +306,7 @@ FATTO DA MIRKO SU DRRIVE
         \hline
         \textbf{Actor}            & Student (ST) \\
         \hline
-        \textbf{Entry conditions} & The user is logged into S\&C and has received at least one internship offer. \\
+        \textbf{Entry conditions} & The user is logged into S\&C. \\
         \hline
         \textbf{Event Flow}       & 1 - The user navigates to the "Offers" section. \\
         & 2 - S\&C retrieves the list of received offers. \\
@@ -332,7 +316,8 @@ FATTO DA MIRKO SU DRRIVE
         \hline
         \textbf{Exit condition}   & The offer status is updated as accepted or rejected. \\       
         \hline
-        \textbf{Exceptions}       & - Offer expired: S\&C notifies the user. \\
+        \textbf{Exceptions}       & - No offers available: S\&C notifies the user. \\
+                                  & - Offer expired: S\&C notifies the user. \\
                                   & - System unavailable: S\&C informs the user and retries later. \\
         \hline
         \caption{Accept or reject internship offers}
@@ -342,7 +327,7 @@ FATTO DA MIRKO SU DRRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=0.8\textwidth]{SequenceDiagrams/Accept_Reject_Offers.svg}
+        \includesvg[width=0.9\textwidth]{SequenceDiagrams/Accept_Reject_Offers.svg}
         \caption{Accept or reject internship offers sequence diagram.}
         \label{fig:accept_reject_offers_seqd}%
     \end{center}
@@ -421,11 +406,11 @@ FATTO DA MIRKO SU DRIVE
         \hline
         \textbf{Entry conditions} & The CP is correctly logged in. The CP has decided to create a internship. The CP is on his profile page. \\
         \hline
-        \textbf{Event Flow}     & 1- The CP clicks on "Publish a Internship"                                button.\\
-                                & 2- S\&C returns the publish internship form.\\
-                                & 3- The CP writes the internship name, specify the application domain, tasks to be performed, relevant adopted technologies ad terms offered\\
-                                & 4- S\&C stores the data of the internship and add it to the CP's internship list\\
-                                & 5- S\&C sends a notication to the STs that might be interested.\\
+        \textbf{Event Flow}     & 1 - The CP clicks on "Publish a Internship"                                button.\\
+                                & 2 - S\&C returns the publish internship form.\\
+                                & 3 - The CP writes the internship name, specify the application domain, tasks to be performed, relevant adopted technologies ad terms offered\\
+                                & 4 - S\&C stores the data of the internship and add it to the CP's internship list\\
+                                & 5 - S\&C sends a notication to the STs that might be interested.\\
         \hline
         \textbf{Exit condition}   & The internship is correctly created and a confirmation message is shown to the CP. \\       
         \hline
@@ -438,7 +423,7 @@ FATTO DA MIRKO SU DRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=\textwidth]{SequenceDiagrams/Create_internship.svg}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Create_Internship.svg}
         \caption{Create and publish internships sequence diagram.}
         \label{fig:create_internship_seqd}%
     \end{center}
@@ -455,10 +440,10 @@ FATTO DA MIRKO SU DRIVE
         \hline
         \textbf{Entry conditions} & The company is logged into S\&C and has at least one published internship.\\
         \hline
-        \textbf{Event Flow}     & 1- The company navigates to the "Published                              Internships" section. \\
-                                & 2- S\&C retrieves the list of internships published by the company. \\
-                                & 3- The company selects an internship to view its details. \\
-                                & 4- S\&C retrieves internship's details and the list of suggested students.\\
+        \textbf{Event Flow}     & 1 - The company navigates to the "Published                              Internships" section. \\
+                                & 2 - S\&C retrieves the list of internships published by the company. \\
+                                & 3 - The company selects an internship to view its details. \\
+                                & 4 - S\&C retrieves internship's details and the list of suggested students.\\
         \hline
         \textbf{Exit condition}     & The company successfully views the list of                                suggested students.\\       
         \hline
@@ -472,7 +457,7 @@ FATTO DA MIRKO SU DRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=\textwidth]{SequenceDiagrams/View_recommended_sudents.svg}
+        \includesvg[width=\textwidth]{SequenceDiagrams/View_Recommended_Students.svg}
         \caption{View recommended students for internships sequence diagram.}
         \label{fig:view_recommended_students_seqd}%
     \end{center}
@@ -486,11 +471,11 @@ FATTO DA MIRKO SU DRIVE
         \hline
         \textbf{Entry conditions} & The company is logged into S\&C. The company should be on a specific internship page to select a student’s name from the recommended students list.\\
         \hline
-        \textbf{Event Flow}     & 1- The company click on a student's name. \\
-                                & 2- S\&C returns the profile page of the selected student. \\
-                                & 3- The company click on the "invite" button. \\
-                                & 4- S\&C sends to the student a request of application.\\
-                                & 5- S\&C redirect the company to the "Progress Page" of the application.\\
+        \textbf{Event Flow}     & 1 - The company click on a student's name. \\
+                                & 2 - S\&C returns the profile page of the selected student. \\
+                                & 3 - The company click on the "invite" button. \\
+                                & 4 - S\&C sends to the student a request of application.\\
+                                & 5 - S\&C redirect the company to the "Progress Page" of the application.\\
         \hline
         \textbf{Exit condition}     & The company successfully views profile of                                the student and sends correctly the notification.\\       
         \hline
@@ -504,7 +489,7 @@ FATTO DA MIRKO SU DRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=\textwidth]{SequenceDiagrams/Contact_students.svg}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Contact_Students.svg}
         \caption{Contact students for internships sequence diagram.}
         \label{fig:contact_students_for_internships_seqd}%
     \end{center}
@@ -518,16 +503,16 @@ FATTO DA MIRKO SU DRIVE
         \hline
         \textbf{Entry conditions} & The company is logged into S\&C. The company wants to review apply requests.\\
         \hline
-        \textbf{Event Flow}     & 1- The company navigates to the "Published                                                        Internships" section. \\
-                                & 2- S\&C retrieves the list of internships published by the company. \\
-                                & 3- The company selects an internship to view its details. \\
-                                & 4- S\&C retrieves internship's details and the list of apply requests.\\
-                                & 5- Company click on the students name.\\
-                                & 6- S\&C returns the profile page of the selected student.\\
-                                & 7- Company check the profile of the student and his CV.\\
-                                & 8- Company decide to accept or reject the apply request.\\
-                                & 9- S\&C send a notification to the student with the company’s decision.\\
-                                & 10- If the company has accepted, S\&C authorizes the assignment of tasks by the company.\\
+        \textbf{Event Flow}     & 1 - The company navigates to the "Published                                                        Internships" section. \\
+                                & 2 - S\&C retrieves the list of internships published by the company. \\
+                                & 3 - The company selects an internship to view its details. \\
+                                & 4 - S\&C retrieves internship's details and the list of apply requests.\\
+                                & 5 - Company click on the students name.\\
+                                & 6 - S\&C returns the profile page of the selected student.\\
+                                & 7 - Company check the profile of the student and his CV.\\
+                                & 8 - Company decide to accept or reject the apply request.\\
+                                & 9 - S\&C send a notification to the student with the company’s decision.\\
+                                & 10 - If the company has accepted, S\&C authorizes the assignment of tasks by the company.\\
         \hline
         \textbf{Exit condition}     & The company successfully accept the request and the student receive the notification.\\       
         \hline
@@ -541,7 +526,7 @@ FATTO DA MIRKO SU DRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=\textwidth]{SequenceDiagrams/Accept_student_applications.svg}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Accept_Student_Applications.svg}
         \caption{Accept student applications sequence diagram.}
         \label{fig:accept_student_applications_seqd}%
     \end{center}
@@ -555,11 +540,11 @@ FATTO DA MIRKO SU DRIVE
         \hline
         \textbf{Entry conditions} & The company is logged into S\&C. The company wants to send questionnaires to students.\\
         \hline
-        \textbf{Event Flow}     & 1- The company goes to a student’s application "Progress Page". \\
-                                & 2- The company click the "create task" button. \\
-                                & 3- S\&C returns the task form.\\
-                                & 4- Company fill the form with task’s requirements, delivery instruction and deadline.\\
-                                & 5-  S\&C adds task to the Progress Page of the application and notify the ST about new assignments.\\
+        \textbf{Event Flow}     & 1 - The company goes to a student’s application "Progress Page". \\
+                                & 2 - The company click the "create task" button. \\
+                                & 3 - S\&C returns the task form.\\
+                                & 4 - Company fill the form with task’s requirements, delivery instruction and deadline.\\
+                                & 5 -  S\&C adds task to the Progress Page of the application and notify the ST about new assignments.\\
         \hline
         \textbf{Exit condition}     & The company successfully add the task and the student receive the notification.\\       
         \hline
@@ -573,7 +558,7 @@ FATTO DA MIRKO SU DRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=\textwidth]{SequenceDiagrams/Submit_questionnaires_for_students.svg}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Submit_Questionnaires_Students.svg}
         \caption{Submit questionnaires for students sequence diagram.}
         \label{fig:submit_questionnaires_for_students_seqd}%
     \end{center}
@@ -587,12 +572,12 @@ FATTO DA MIRKO SU DRIVE
         \hline
         \textbf{Entry conditions} & The company is logged into S\&C. The company wants to finalize the selection process.\\
         \hline
-        \textbf{Event Flow}    & 1- The company navigates to the "Published                                                        Internships" section. \\
-                                & 2- S\&C retrieves the list of internships published by the company. \\
-                                & 3- The company selects an internship to view its details. \\
-                                & 4- S\&C retrieves internship's details and the list of applicant students.\\
-                                & 5- The company selects students.\\
-                                & 6- S\&C add selected student to the internship’s list and notifies both selected and rejected students.\\
+        \textbf{Event Flow}    & 1 - The company navigates to the "Published                                                        Internships" section. \\
+                                & 2 - S\&C retrieves the list of internships published by the company. \\
+                                & 3 - The company selects an internship to view its details. \\
+                                & 4 - S\&C retrieves internship's details and the list of applicant students.\\
+                                & 5 - The company selects students.\\
+                                & 6 - S\&C add selected student to the internship’s list and notifies both selected and rejected students.\\
         \hline
         \textbf{Exit condition}     & The company successfully select the students and all the students receive the notification.\\       
         \hline
@@ -606,7 +591,7 @@ FATTO DA MIRKO SU DRIVE
 
 \begin{figure}[H]
     \begin{center}
-        \includesvg[width=\textwidth]{SequenceDiagrams/Finalize_the_selection_process.svg}
+        \includesvg[width=\textwidth]{SequenceDiagrams/Finalize_Selection_Process.svg}
         \caption{Finalize the selection process sequence diagram.}
         \label{fig:finalize_the_selection_process_seqd}%
     \end{center}
@@ -627,7 +612,7 @@ TODO
 \subsubsection*{UC\cuc . Cancel problematic internships}
 TODO
 
-\subsubsection*{UC\cuc . Collect and review feedback from companies and students}
+\subsubsection*{UC\cuc . Collect feedback from companies and students to improve matching}
 TODO
 
 \subsubsection*{UC\cuc . Inform companies about available students matching their criteria}
