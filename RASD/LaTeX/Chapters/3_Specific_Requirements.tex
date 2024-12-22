@@ -82,7 +82,7 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/User.png}
+        \includegraphics[width=\linewidth]{UseCaseDiagrams/User.png}
         \caption{Use Cases Diagram for all users.} 
         \label{fig:UserUC}%
     \end{center}
@@ -98,19 +98,20 @@ The communication interfaces needed by the system include the HTTPS protocol for
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{UseCaseDiagrams/SeC.png}
+        \includegraphics[width=\linewidth]{UseCaseDiagrams/SeC.png}
         \caption{Use Cases Diagram for S\&C.} 
         \label{fig:SeCUC}%
     \end{center}
 \end{figure}
 
-\newpage
 \subsection{Use cases}
 \label{subsec: use_cases}%
 \newcounter{uc}
 \setcounter{uc}{1}
 \newcommand{\cuc}{\theuc\stepcounter{uc}}
 This section explains the main use cases and how they work. It includes a table for each use case that shows the starting conditions, steps involved, ending conditions, and any exceptions. There's also a sequence diagram that illustrates the messages exchanged between different entities and the functions that are called. \\
+
+\newpage
 
 \subsubsection*{UC\cuc . Log in to the system}
 \begin{center}
@@ -137,7 +138,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Login.png}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/Login.png}
         \caption{Log in to the system sequence diagram.}
         \label{fig:login_seqd}%
     \end{center}
@@ -166,7 +167,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Logout.png}
+        \includegraphics[width=0.4\textwidth]{SequenceDiagrams/Logout.png}
         \caption{Log out from the system sequence diagram.}
         \label{fig:logout_seqd}%
     \end{center}
@@ -203,6 +204,7 @@ This section explains the main use cases and how they work. It includes a table 
     \end{center}
 \end{figure}
 
+\newpage
 
 \subsubsection*{UC\cuc . View and update their profile}
 \begin{center}
@@ -230,7 +232,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/View_And_Update.png}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/View_And_Update.png}
         \caption{View and update profile sequence diagram.}
         \label{fig:view_update_profile_seqd}%
     \end{center}
@@ -261,7 +263,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Search_Internships.png}
+        \includegraphics[width=0.9\textwidth]{SequenceDiagrams/Search_Internships.png}
         \caption{Search for internships sequence diagram.}
         \label{fig:search_internships_seqd}%
     \end{center}
@@ -293,7 +295,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Apply_Internship.png}
+        \includegraphics[width=0.55\textwidth]{SequenceDiagrams/Apply_Internship.png}
         \caption{Apply for an internship sequence diagram.}
         \label{fig:apply_internship_seqd}%
     \end{center}
@@ -356,7 +358,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Accept_Reject_Offers.png}
+        \includegraphics[width=0.9\textwidth]{SequenceDiagrams/Accept_Reject_Offers.png}
         \caption{Accept or reject internship offers sequence diagram.}
         \label{fig:accept_reject_offers_seqd}%
     \end{center}
@@ -385,7 +387,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Complete_Questionnaires.png}
+        \includegraphics[width=\textwidth]{SequenceDiagrams/Complete_Questionnaires.png}
         \caption{Complete questionnaires from companies sequence diagram.}
         \label{fig:complete_questionnaires_seqd}%
     \end{center}
@@ -417,7 +419,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Provide_Feedback.png}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/Provide_Feedback.png}
         \caption{Provide feedback on completed internships sequence diagram.}
         \label{fig:provide_feedback_seqd}%
     \end{center}
@@ -448,7 +450,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/File_Complaints.png}
+        \includegraphics[width=0.8\textwidth]{SequenceDiagrams/File_Complaints.png}
         \caption{File complaints about internships sequence diagram.}
         \label{fig:file_complaints_seqd}%
     \end{center}
@@ -479,7 +481,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Create_Internship.png}
+        \includegraphics[width=0.8\textwidth]{SequenceDiagrams/Create_Internship.png}
         \caption{Create and publish internships sequence diagram.}
         \label{fig:create_internship_seqd}%
     \end{center}
@@ -512,7 +514,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/View_Manage_Internships.png}
+        \includegraphics[width=0.65\textwidth]{SequenceDiagrams/View_Manage_Internships.png}
         \caption{View and manage published internships sequence diagram.}
         \label{fig:view_manage_internships_seqd}%
     \end{center}
@@ -544,7 +546,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/View_Recommended_Students.png}
+        \includegraphics[width=0.9\textwidth]{SequenceDiagrams/View_Recommended_Students.png}
         \caption{View recommended students for internships sequence diagram.}
         \label{fig:view_recommended_students_seqd}%
     \end{center}
@@ -573,14 +575,6 @@ This section explains the main use cases and how they work. It includes a table 
         \label{tab: contact_students_for_internships_usecase}
     \end{longtable}
 \end{center}
-
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Contact_Students.png}
-        \caption{Contact students for internships sequence diagram.}
-        \label{fig:contact_students_for_internships_seqd}%
-    \end{center}
-\end{figure}
 
 \subsubsection*{UC\cuc . Accept student applications}
 \begin{center}
@@ -613,7 +607,15 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Accept_Student_Applications.png}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/Contact_Students.png}
+        \caption{Contact students for internships sequence diagram.}
+        \label{fig:contact_students_for_internships_seqd}%
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{SequenceDiagrams/Accept_Student_Applications.png}
         \caption{Accept student applications sequence diagram.}
         \label{fig:accept_student_applications_seqd}%
     \end{center}
@@ -645,7 +647,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Submit_Questionnaires_Students.png}
+        \includegraphics[width=0.5\textwidth]{SequenceDiagrams/Submit_Questionnaires_Students.png}
         \caption{Submit questionnaires for students sequence diagram.}
         \label{fig:submit_questionnaires_for_students_seqd}%
     \end{center}
@@ -678,7 +680,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{SequenceDiagrams/Finalize_Selection_Process.png}
+        \includegraphics[width=0.8\textwidth]{SequenceDiagrams/Finalize_Selection_Process.png}
         \caption{Finalize the selection process sequence diagram.}
         \label{fig:finalize_the_selection_process_seqd}%
     \end{center}
@@ -710,7 +712,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Provide_Feedback_Interns.png}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/Provide_Feedback_Interns.png}
         \caption{Provide feedback on interns sequence diagram.}
         \label{fig:provide_feedback_interns_seqd}%
     \end{center}
@@ -741,7 +743,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/File_Complaints_Students.png}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/File_Complaints_Students.png}
         \caption{File complaints about students sequence diagram.}
         \label{fig:file_complaints_students_seqd}%
     \end{center}
@@ -772,7 +774,7 @@ This section explains the main use cases and how they work. It includes a table 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Monitor_student_internships.png}
+        \includegraphics[width=0.5\textwidth]{SequenceDiagrams/Monitor_Student_Internships.png}
         \caption{File complaints about students sequence diagram.}
         \label{fig:monitor_student_internships_seqd}%
     \end{center}
@@ -801,14 +803,6 @@ This section explains the main use cases and how they work. It includes a table 
     \end{longtable}
 \end{center}
 
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Handle_internships_complaints.png}
-        \caption{File complaints about students sequence diagram.}
-        \label{fig:handle_internships_complaints_seqd}%
-    \end{center}
-\end{figure}
-
 \subsubsection*{UC\cuc . Cancel problematic internships}
 \begin{center}
     \begin{longtable}{|l|p{0.75\linewidth}|}
@@ -835,7 +829,15 @@ internships. \\
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Cancel_internship.png}
+        \includegraphics[width=0.9\textwidth]{SequenceDiagrams/Handle_Internships_Complaints.png}
+        \caption{File complaints about students sequence diagram.}
+        \label{fig:handle_internships_complaints_seqd}%
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/Cancel_Internship.png}
         \caption{Cancellation of an internship sequence diagram.}
         \label{fig:cancel_internship_seqd}%
     \end{center}
@@ -867,7 +869,7 @@ internships. \\
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Improve_recommendation_algorithm.png}
+        \includegraphics[width=0.8\textwidth]{SequenceDiagrams/Improve_Recommendation_Algorithm.png}
         \caption{Improving the recommendation algorithm.}
         \label{fig:improve_recommendation_algorithm_seqd}%
     \end{center}
@@ -899,7 +901,7 @@ internships. \\
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Inform_Companies.png}
+        \includegraphics[width=0.7\textwidth]{SequenceDiagrams/Inform_Companies.png}
         \caption{Inform companies about available students sequence diagram.}
         \label{fig:inform_companies_seqd}%
     \end{center}
@@ -931,7 +933,7 @@ internships. \\
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\textwidth]{SequenceDiagrams/Inform_Students.png}
+        \includegraphics[width=0.8\textwidth]{SequenceDiagrams/Inform_Students.png}
         \caption{Inform students about new internship opportunities sequence diagram.}
         \label{fig:inform_students_seqd}%
     \end{center}
@@ -1051,6 +1053,8 @@ internships. \\
 \label{tab:traceability}
 \end{longtable}
 \end{center}
+
+\newpage
 
 \section{Performance requirements}
 \label{sec:performance_requirements}%
