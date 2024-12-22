@@ -749,16 +749,130 @@ This section explains the main use cases and how they work. It includes a table 
 
 
 \subsubsection*{UC\cuc . Monitor the status of all internships}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & University (UV) \\
+        \hline
+        \textbf{Entry conditions} & A student from this university is accepted for an internship. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The university navigates to the monitoring section. \\
+        & 2 - S\&C provides the list of all the university's students taking internships. \\
+        & 3 - The university selects a student and looks at the overview of the internship. \\
+        \hline
+        \textbf{Exit condition}   & The University successfully manages to monitors all of its Student Internships. \\       
+        \hline
+        \textbf{Exceptions}       & - No matching students found: S\&C informs the university that no students are in an ongoing internship at the moment. \\
+        & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Monitor student's internships}
+        \label{tab:monitor_student_internships_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Monitor_student_internships.png}
+        \caption{File complaints about students sequence diagram.}
+        \label{fig:monitor_student_internships_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . Handle complaints from students or companies}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & University (UV), Student (ST), Company (CP) \\
+        \hline
+        \textbf{Entry conditions} & A student or a company makes a complaint about the internship or the student. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The university navigates to the complaints section. \\
+        & 2 - S\&C provides the list of all the complaints that must be handled by the university. \\
+        & 3 - The university selects the complaints that want to handle. \\
+        & 4 - The university opens the chat with student or company, and try to get a better understanding of the problem. \\
+        & 5 - If the problem is resolved, the university will mark the complaint as resolved, otherwise the university may decide to cancel the internship. \\
+        \hline
+        \textbf{Exit condition}   & The University marks the complaint as resolved. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Handle internship's complaints}
+        \label{tab:handle_internships_complaints_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Handle_internships_complaints.png}
+        \caption{File complaints about students sequence diagram.}
+        \label{fig:handle_internships_complaints_seqd}%
+    \end{center}
+\end{figure}
 
 \subsubsection*{UC\cuc . Cancel problematic internships}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & University (UV), Student (ST), Company (CP) \\
+        \hline
+        \textbf{Entry conditions} & University can't resolve a student or company complaint. \\
+        \hline
+        \textbf{Event Flow}       & 1 - The university navigates to the monitoring section. \\
+        & 2 - S\&C provides the list of all the university’s students taking
+internships. \\
+        & 3 - The university choose the problematic internship. \\
+        & 4 - The university click on cancel internship. \\
+        & 5 - S\&C informs both student and company about the cancellation of the internship. \\
+        \hline
+        \textbf{Exit condition}   & The University successfully canceled the internship. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Cancel an internship}
+        \label{tab:cancel_internships_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Cancel_internship.png}
+        \caption{Cancellation of an internship sequence diagram.}
+        \label{fig:cancel_internship_seqd}%
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{UC\cuc . Collect feedback from companies and students to improve matching}
-TODO
+\begin{center}
+    \begin{longtable}{|l|p{0.75\linewidth}|}
+        \hline
+        \textbf{Actor}            & S\&C (automated process), User (ST or CP) \\
+        \hline
+        \textbf{Entry conditions} & A Feedback is provided by a User. \\
+        \hline
+        \textbf{Event Flow}       & 1 - A User submit a feedback about an internship. \\
+        & 2 - The S\&C system saves the feedback. \\
+        & 3 - 
+    \item The S\&C system processes the feedback and integrates it into the dataset used by the recommendation algorithm. . \\
+        & 4 - The S\&C system retrains the recommendation algorithm to refine its matching accuracy using the updated dataset. \\
+        \hline
+        \textbf{Exit condition}   & The system successfully enhances the recommendation algorithm by incorporating user feedback. \\       
+        \hline
+        \textbf{Exceptions}       & - System unavailable: S\&C logs the issue and retries later. \\
+        \hline
+        \caption{Improving recommendation algorithm}
+        \label{tab:Improve_recommendation_algorithm_usecase}
+    \end{longtable}
+\end{center}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{SequenceDiagrams/Improve_recommendation_algorithm.png}
+        \caption{Improving the recommendation algorithm.}
+        \label{fig:improve_recommendation_algorithm_seqd}%
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{UC\cuc . Inform companies about available students matching their criteria}
 \begin{center}
