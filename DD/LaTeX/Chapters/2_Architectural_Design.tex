@@ -12,16 +12,15 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 
 \noindent Client side:
 \begin{itemize}
-    \item WebApp: serves as the User interface, allowing all Users to connect to CKB. It enables Users to perform operations such as registration, login, creating or joining Tournaments and Battles, creating or modifying Badges and searching for other Users.
+    \item WebApp: Represents the User Interface of the system, providing access through a web application to the offered services such as registration, login, updating profile overview, creating internships, searching and applying for internships, creating tasks for candidates, submitting complaints or providing feedback. It’s responsible for all the User interactions, and it communicates with the main server through the Web Server, using secure protocols like HTTPS.
 \end{itemize}
 \noindent Server side:
 \begin{itemize}
-    \item \textbf{Web Server:} handles communication with Users, receiving and processing their inputs. Additionally, it provides load balancing for requests, distributing them among various replicas of the CKB Server. It also manages the User sessions.
-    \item \textbf{CKB Server:} is the central component where interfaces are located, facilitating communication between the Web Server and databases/APIs. It serves as the primary server for the entire website and is replicated across multiple machines to handle a high volume of requests.
-    \item \textbf{DBMS Server:} stores data related to Users, Tournaments, Group, Badges and Battles. It acts as the repository for essential information.
-    \item \textbf{Mail Server:} is responsible for sending confirmation eMails when a new User registers on CKB, enhancing the User registration process.
-    \item \textbf{GitHub API:} is utilized for communication with GitHub, facilitating the creation of the Battle repository and allowing STGs to fork the repository to push their code.
-    \item \textbf{External Tools API:} used to automatically test the STG code when a new push is made. It is also used to retrieve the results of the tests and update the Battle dashboard.
+    \item \textbf{Web Server:} handles communication with Users, receiving and processing their inputs. Additionally, it provides load balancing for requests, distributing them among various replicas of the S\&C Server. It also manages the User sessions.
+    \item \textbf{S\&C Server:} the core of the system, contains most of the logic of the software and handles interactions between different components. It also coordinates the communication with the DBMS, triggers the recommendation algorithm through the External Tools API and sends notifications to the users. It serves as the primary server for the entire website and is replicated across multiple machines to handle a high volume of requests.
+    \item \textbf{DBMS Server:} stores data related to Users, Internships, Resumes, Complaints and Feedback. It acts as the repository for essential information.
+    \item \textbf{Mail Server:} is responsible for sending confirmation email when a new User registers on S\&C, enhancing the User registration process.
+    \item \textbf{External Tools API:} used to run the recommendation algorithm. It also takes feedback in inputs to reinforce the algorithm over time, ensuring better accuracy in the matching process.
 \end{itemize}
 
 \section{Component View}
@@ -38,13 +37,12 @@ Here we represent an overview of how the entire S\&C architecture is composed of
     \end{center}
 \end{figure}
 
-\noindent In the figure above is the high level component diagram of CKB where it’s represented the external components of CKB and how they communicate with the CKB server, in particular:
+\noindent In the figure above is the high level component diagram of S\&C where it’s represented the external components of S\&C and how they communicate with the S\&C server, in particular:
 \begin{itemize}
-    \item \textbf{WebApp}: serves as the external access point for Users, allowing communication with the CKB Server through the Dashboard Interface—the sole means for Client-Server interaction from the User side. The CKB Server can relay notifications, such as Tournament or Battle creation, to Users through the Notification Interface.
-    \item \textbf{DBMS:} is the storage repository for all User, Tournament, and Battle data. It communicates with the CKB Server via the DBMS API, which is connected to the Model component.
-    \item \textbf{Mail Server:} responsible for sending registration confirmation eMails, the Mail Server communicates with the CKB Server using the Mail API interface. This interface is linked to the Registration Manager component, which oversees the User registration process..
-    \item \textbf{External Tools:} external application used for testing the code submitted by STGs on GitHub. It communicates with the CKB Server through the External Tools API, connecting to the Evaluation Manager component. The Evaluation Manager handles the evaluation process for STG-submitted code.
-    \item \textbf{GitHub:}  external website used to create repositories for the code katas of Battles. Each STG, after forking the main repository, pushes their code for evaluation. GitHub communicates with the CKB Server through the GitHub API, linked to the Evaluation Manager.
+    \item \textbf{WebApp}: serves as the external access point for Users, allowing communication with the S\&C Server through the Dashboard Interface—the sole means for Client-Server interaction from the User side. The S\&C Server can relay notifications, such as Student uploading overviews or Internship creation, to Users through the Notification Interface.
+    \item \textbf{DBMS:} is the storage repository for all User data, Internships, Feedback and Complaints. It communicates with the S\&C Server via the DBMS API, which is connected to the Model component.
+    \item \textbf{Mail Server:} responsible for sending registration confirmation emails, the Mail Server communicates with the S\&C Server using the Mail API interface. This interface is linked to the Registration Manager component, which oversees the User registration process..
+    \item \textbf{External Tools:} external application used for running and reinforcing a sophisticated recommendation algorithm. It communicates with the S\&C Server through the External Tools API, connecting to the Recommendation Manager component. The Recommendation Manager handles the notification process for the matching phase of the system.
 \end{itemize}
 
 \subsection{Low Level Diagram}
