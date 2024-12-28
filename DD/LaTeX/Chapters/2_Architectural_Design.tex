@@ -67,44 +67,48 @@ Here we represent an overview of how the entire S\&C architecture is composed of
     \item \textbf{Internship Manager:} This component allow the Companies to create, modify and visualize internships. When a company wants to publish a new internship, interacts with the dashboard manager, which forwards the requests to the Internship Manager. This component manage to save new published internship, modify the status or retrieve information for internship search from the Model component, interacting with it via the Model Interface.
     \item \textbf{Interview Manager:} This is the main component of the interview phase of an internship. When a company wants to start preparing tasks or submit them to candidates, interacts with the Dashboard Manager, who forwards the requests to the Interview Manager, who manage to interact with the Model through the Model Interface for saving information. It can also notify the candidates when the tasks are ready to be carried out, or results are ready, contacting the Notification Manager module through the InterviewNotif Interface.
     \item \textbf{Complaints Manager:} This component handles the complaints related to an internship. When a User wants to file a complaint about an internship, interact with the Dashboard Manager, who forwards the requests to the Complaint Manager through the Complaint Interface, which needs to Notify the University of the Student related complaint, contacting the Notification Manager module through the InterviewNotif Interface. It can also store the complaints on the model for the purpose of reinforcing the algorithm.
-    \item \textbf{Feedback Manager:} This component has the tasks of handling the feedback process. When a User wants to provide a feedback about an internship, it interacts with the Dashboard Manager, who forwards the requests to the Feedback Manager, that manage to save the new data on the DBMS contacting the Model through the Model Interface. By doing that, it allows the Recommendation Manager to retreive useful information from the DBMS to reinforce the Recommendation algorithm.
     \item \textbf{Notification Manager:} Component that handles each notification that has to be sent to the Users, in particular when a new match has been found from the recommendation algorithm, it sends a notification both to the Student and the Company related with that match; when the interview phase is completed, it sends the notification to all the candidates informing them wether they've been selected or not; when a new complaint is made from a company or a student, it notify the university that has to handle it. All the communication from other components to this are made through the InterviewNotif Interface, ComplNotif Interface or the Recommendation Interface, and it communicates with the web app through the Notification Interface..
 \end{itemize}
 
-\subsection{Evaluation Manager}
-\label{subsec:evaluation_manager}%
+\subsection{Recommendation Manager}
+\label{subsec:recommendation_manager}%
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{CD_DD/Evaluation Manager.png}
-        \caption{Evaluation Manager.}
-        \label{fig:evaluation_manager}%
+        \includegraphics[width=1\linewidth]{CD_DD/RecommendationManager.png}
+        \caption{Recommendation Manager.}
+        \label{fig:recommendation_manager}%
     \end{center}
 \end{figure}
 
-\noindent The Evaluation Manager is composed by two other sub-components that handles the two different evaluation method of a STG code:
+\noindent The Recommendation Manager is composed by two other sub-components, one for handling the automated trigger for the recommendation algorithm and the other one for showing to the user their recommendation list:
 
 \begin{itemize}
-    \item \textbf{Automated Evaluation component:} utilized by the CKB system to automatically evaluate STG code whenever a new push is made to the STG's forked repository on GitHub. When a code update occurs, GitHub communicates with the Automated Evaluation component through the GitHub API. Subsequently, the Automated Evaluation component sends the code to External Tools via the External Tools API, where the code undergoes testing and evaluation. Upon receiving the evaluation results, the Automated Evaluation component, through the Model interface, communicates with the Model component. The Model component utilizes the DBMS API to update the new score in the relevant DBMS section associated with the corresponding Battle.
-    \item \textbf{Manual Evaluation component:} comes into play when an ED wishes to manually assess an STG code. The process begins with the WebApp, which, through the Dashboard Interface, requests the STG code from the Dashboard Manager. The Dashboard Manager then communicates this request to the Manual Evaluation component through the Evaluation Interface. Subsequently, the Manual Evaluation component communicates with the GitHub API to retrieve the source code from the STG's forked repository, allowing the ED to analyze it. Once the evaluation is complete and the ED decides to update the score, the Manual Evaluation component, through the Model Interface, communicates with the Model component. The Model component, utilizing the DBMS API, updates the score in the DBMS, ensuring the manual evaluation results are recorded appropriately.
+    \item \textbf{Automated Trigger component:} .
+    \item \textbf{View Matches component:} .
 \end{itemize}
 
-\subsection{Badge Manager}
-\label{subsec:badge_manager}%
+\subsection{Internship Manager}
+\label{subsec:internship_manager}%
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{CD_DD/Badge Manager.png}
-        \caption{Badge Manager.}
-        \label{fig:badge_manager}%
+        \includegraphics[width=1\linewidth]{CD_DD/InternshipManager.png}
+        \caption{Internship Manager.}
+        \label{fig:internship_manager}%
     \end{center}
 \end{figure}
 
-\noindent The Badge Manager is the component used by the CKB system to handle the creation and the modification of the Badges during the Tournament creation:
+\noindent The Internship Manager is made by the following components:
 
 \begin{itemize}
-    \item \textbf{Create Badge component:} activated when an ED intends to create a new Badge for a newly created Tournament. The initiation of this process is through the Create Tournament component, a sub-component of the Tournament Manager. The Create Tournament component, via the Badge Interface, sends a request to the Create Badge component, allowing the ED to define the Badge with its specific settings and parameters, such as the criteria STs must fulfill to obtain it. Following the Badge creation, the Create Badge component, through the Model Interface, communicates with the Model component, ensuring the newly created Badge is added to the DBMS.
-    \item \textbf{Modify Badge component:} engaged when an ED aims to modify an existing Badge that was previously created for another Tournament. The process is initiated by the Create Tournament component, a sub-component of the Tournament Manager. The Create Tournament component, via the Badge Interface, sends a request to the Modify Badge component, allowing the ED to adjust parameters associated with an existing Badge, specifying new criteria for STs to fulfill. Once the Badge is successfully modified, the Modify Badge component, through the Model Interface, communicates with the Model component. This communication ensures that the updated Badge information is reflected in the DBMS.
+    \item \textbf{View internship component:} .
+    \item \textbf{Create internship component:} .
+    \item \textbf{Modify internship component:} .
+    \item \textbf{Apply internship component:} .
+    \item \textbf{Search internship component:} .
+    \item \textbf{Create feedback component:} .
+    \item \textbf{View Candidates component:} .
 \end{itemize}
 
 \subsection{Profile Manager}
@@ -112,58 +116,53 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{CD_DD/Profile Manager.png}
+        \includegraphics[width=1\linewidth]{CD_DD/ProfileManager.png}
         \caption{Profile Manager.}
         \label{fig:profile_manager}%
     \end{center}
 \end{figure}
 
-\noindent The Profile Manager is the component used by the CKB system to handle the research of a User’s profile and the visualization of another User’s profile when the User clicks on a nickname within the Tournament or Battle dashboard:
+\noindent The Profile Manager is the component :
 
 \begin{itemize}
-    \item \textbf{Search component:} responsible for managing the profile search process when a User enters a nickname or keyword into the search bar across various CKB pages. When a User initiates a search by entering another User's nickname or a relevant keyword, the Dashboard Manager communicates with the Search component through the Profile Interface. The Search component then forwards the search request to the Model component via the Model Interface. Subsequently, the Model component retrieves the profile information from the DBMS. The retrieved information is then presented to the User, allowing him to visualize the searched User's profile.
-    \item \textbf{Open Profile component:} manages the retrieval of a User's profile when a User clicks on a nickname within a Tournament or Battle dashboard. When a User clicks on another User's nickname in a Tournament or Battle dashboard, the Dashboard Manager communicates with the View component within the Tournament or Battle Manager. The View component forwards the request to the Open Profile component through the Open Interface. The Open Profile component communicates with the Model component via the Model Interface. This communication with the Model component facilitates the retrieval of the User's profile information from the DBMS. The retrieved profile information is then presented to the User, allowing them to view the selected User's profile.
+    \item \textbf{View Profile component:} .
+    \item \textbf{Update Profile component:} .
 \end{itemize}
 
-\subsection{Tournament Manager}
-\label{subsec:tournament_manager}%
+\subsection{Complaints Manager}
+\label{subsec:complaints_manager}%
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{CD_DD/Tournament Manager.png}
-        \caption{Tournament Manager.}
-        \label{fig:tournament_manager}%
+        \includegraphics[width=1\linewidth]{CD_DD/ComplaintsManager.png}
+        \caption{Complaints Manager.}
+        \label{fig:complaints_manager}%
     \end{center}
 \end{figure}
 
-\noindent The Tournament Manager is the component used by the CKB system to handle every aspect of the Tournament, from the creation to the end going through the Join and the View sub-components:
+\noindent The Complaints Manager is the component :
 
 \begin{itemize}
-    \item \textbf{Create Tournament component:} utilized when an ED initiates the creation of a new Tournament. The ED communicates with the Dashboard Manager through the Dashboard Interface, which then directs the request to the Create Tournament component. This component sends back a creation form for the ED to fill. Once completed, the Create Tournament component communicates the data to the Model component through the Model Interface, adding the information to the DBMS via the DBMS API. If the ED grants permissions to other EDs, the Create Tournament component communicates with the Notification Manager through the NotifTB Interface to notify the specified EDs. Additionally, notifications are sent to all the STs via the Notification Manager, informing them of the new Tournament. Throughout the Tournament creation process, the Create Tournament component also communicates with the Badge Manager through the Badge Interface, allowing the ED to create or modify Badges associated with the Tournament.
-    \item \textbf{Join Tournament component:} activated when an ST wishes to join a Tournament. The ST communicates with the Dashboard Manager through the Dashboard Interface, and the request is forwarded to the Join Tournament component. This component communicates through the Model Interface with the Model component to add the ST to the Tournament participant list in the DBMS through the DBMS API. 
-    \item \textbf{View Tournament component:} used by the CKB system to let the User visualize the Tournament page with all the information, like the available Battles and the Dashboard with the STs score. When a User wants to search a Tournament it writes the Tournament name or a keyword in the search bar and it communicates with the Dashboard Manager through the Dashboard Interface that forwards the request to the View Tournament component that communicates with the Model component through the Model Interface to retrieve all the information from the DBMS through the DBMS API and let the User visualize the Tournament page. The same communication is made when a User clicks on a Tournament name in another User’s profile or in his main dashboard page. This component also manages the open profile operation when a User wants to visualize another User’s profile from the Tournament dashboard; when a User clicks on another User’s nickname in the Tournament dashboard the Dashboard Manager communicates through the Dashboard Interface with the View Tournament component that forwards the request to the the Profile Manager through the Open Interface.
-    \item \textbf{End Tournament component:} triggered when an ED decides to close a Tournament, preventing further ST participation and ED creation of Battles within it. The ED communicates with the Dashboard Manager through the Dashboard Interface, which forwards the request to the Close Tournament component. The Close Tournament component communicates with the Model component through the Model Interface, modifying the Tournament's status to make it non-joinable in the DBMS through the DBMS API. Additionally, the Close Tournament component communicates through the NotifTB Interface to the Notification Manager, which sends notifications to all STs who participated in the Tournament, informing them that final scores are ready for viewing.
+    \item \textbf{Create Complaint component:} .
+    \item \textbf{Open Chat component:} .
 \end{itemize}
 
-\subsection{Battle Manager}
-\label{subsec:battle_manager}%
+\subsection{Interview Manager}
+\label{subsec:interview_manager}%
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{CD_DD/Battle Manager.png}
-        \caption{Battle Manager.}
-        \label{fig:battle_manager}%
+        \includegraphics[width=1\linewidth]{CD_DD/InterviewManager.png}
+        \caption{Interview Manager.}
+        \label{fig:interview_manager}%
     \end{center}
 \end{figure}
 
-\noindent The Battle Manager is the component used by the CKB system to handle every aspect of the Battle, from the creation to the end going through the Join, the View and the Create Group sub-components:
+\noindent The Interview Manager is the component :
 
 \begin{itemize}
-    \item \textbf{Create Battle component:} engaged when an ED wishes to create a new Battle within a Tournament. The ED communicates with the Dashboard Manager through the Dashboard Interface, forwarding the request to the Create Battle component. The Create Battle component responds by sending a creation form to be filled by the ED. Upon completion, the component communicates the data to the Model component through the Model Interface, adding the information to the DBMS through the DBMS API. Additionally, the Create Battle component communicates with the Notification Manager through the NotifTB Interface, notifying all STs who have joined the relevant Tournament about the new Battle. It also collaborates with the End Battle component to create a timer, ensuring that after the consolidation stage concludes, the End Tournament component notifies all STs about the availability of final grades. The Create Battle component also communicates with GitHub through the GitHub API to create a new repository and upload the code kata for the Battle. This repository is later forked by all STGs to submit their code.
-    \item \textbf{Join Battle component:} activated when an ST intends to join a Battle. The ST communicates with the Dashboard Manager through the Dashboard Interface, and the request is forwarded to the Join Battle component. The Join Battle component, through the Model Interface, communicates with the Model component, adding the ST to the participant list of the Battle in the DBMS through the DBMS API.
-    \item \textbf{View Battle component:} used by the CKB system to let the User visualize the Battle page with the dashboard including all the STGs score. When a User wants to visualize the Battle page it communicates with the Dashboard Manager through the Dashboard Interface that forwards the request to the View Battle component that communicates with the Model component through the Model Interface to retrieve all the information from the DBMS through the DBMS API and finally let the User visualize the Battle page. This component also manages the open profile operation when a User wants to visualize another User’s profile from the Battle dashboard; when a User clicks on another User’s nickname in the Battle dashboard the Dashboard Manager communicates through the Dashboard Interface with the View Tournament component that forwards the request to the the Profile Manager through the Open Interface.
-    \item \textbf{Create Group component} engaged when STs want to create a new STG for a Battle. After joining a Battle before the registration deadline expires, an ST can create an STG to participate in the battle. The ST communicates with the Dashboard Manager through the Dashboard Interface, initiating a request to create a new STG. The request is forwarded to the Create Group component through the Battle Interface, allowing the ST to decide the STG name and invite other STs. Notifications are sent through the Notification Manager, which communicates with the Battle Manager through the NotifTB interface and with the WebApp through the Notification Interface. When the STG is confirmed, the Create Group component communicates through the Model Interface with the Model component to add the newly created STG to the DBMS through the DBMS API.
-    \item \textbf{End Battle component:} activated to notify all STGs that the final scores of the Battle are available. When the consolidation stage concludes, and the timer created by the Create Battle component expires, the End Battle component communicates through the Model Interface with the Model component, updating the scores in the DBMS through the DBMS API. It also notifies all participating STs through the Notification Manager, communicating through the NotifTB Interface, that the final scores are accessible on the Battle page. Communication between the Notification Manager and the WebApp is facilitated through the Notification Interface.
+    \item \textbf{Create Task component:} .
+    \item \textbf{Select Candidates component:} .
 \end{itemize}
 
 
