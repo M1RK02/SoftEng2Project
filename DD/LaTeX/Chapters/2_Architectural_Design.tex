@@ -84,8 +84,8 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 \noindent The Recommendation Manager is composed by two other sub-components, one for handling the automated trigger for the recommendation algorithm and the other one for showing to the user their recommendation list:
 
 \begin{itemize}
-    \item \textbf{Automated Trigger component:} .
-    \item \textbf{View Matches component:} .
+    \item \textbf{Automated Trigger component:} This component is essential for ensuring the continuous and autonomous operation of the recommendation system. Its primary function is to periodically initiate the recommendation algorithm, which scans the database for new or updated profiles and internship postings. By doing so, the component guarantees that students and companies receive the most relevant and recent matches based on evolving criteria such as updated CVs, new internship opportunities, and feedback collected from previous experiences. This component interfaces directly with the External Tools API, responsible for executing the complex matching logic that considers various parameters, including skills, interests, and project domains.
+    \item \textbf{View Matches component:} The View Matches component retrieves the latest matches identified by the Automated Trigger and displays them through the user’s dashboard. For students, a list of internship opportunities that align with their skills and interests. For companies, potential candidates whose profiles closely match the requirements of their internship postings. Users can also filter and sort recommendations. Additionally, the View Matches component provides direct links to student profiles or internship details.
 \end{itemize}
 
 \subsection{Internship Manager}
@@ -102,13 +102,13 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 \noindent The Internship Manager is made by the following components:
 
 \begin{itemize}
-    \item \textbf{View internship component:} .
-    \item \textbf{Create internship component:} .
-    \item \textbf{Modify internship component:} .
-    \item \textbf{Apply internship component:} .
-    \item \textbf{Search internship component:} .
-    \item \textbf{Create feedback component:} .
-    \item \textbf{View Candidates component:} .
+    \item \textbf{View internship component:} The View Internship component provides a comprehensive interface for accessing and managing internship postings within the system. For students, the component acts as a searchable catalogue of available internships, with filtering and sorting options. This component pulls data directly from the DBMS through the Model Interface, ensuring real-time synchronization with the latest postings. It allows companies to view the number of applicants, monitor engagement, and update internship details if necessary. For students, each internship listing includes detailed descriptions, project requirements, and any associated benefits. Additionally, the View Internship component integrates with the Apply Internship subcomponent.
+    \item \textbf{Create internship component:} This component facilitates the creation and publication of new internship offers by companies. It provides a structured form that guides users through defining essential parameters, such as internship title, required skills, project description, duration, and compensation details. Once the form is completed, the Create Internship component validates the input to ensure completeness and consistency. It then interfaces with the DBMS through the Model component to store the new internship in the database. If errors are detected during the validation process, the component provides immediate feedback, allowing the user to correct any issues before submission.
+    \item \textbf{Modify internship component:} The Modify Internship component enables companies to update or delete existing internship postings. Users can access this component through the View Internship interface, selecting the internship they wish to edit. Changes made through the Modify Internship component are instantly propagated to the DBMS, ensuring all users view the most up-to-date information. 
+    \item \textbf{Apply internship component:} The Apply Internship component is central to the student experience on the platform. It allows students to submit applications for internships directly through the system. Upon clicking the “Apply” button, the component gathers the student’s profile data, CV, and any additional required documents before forwarding the application to the target company. Companies are notified of new applications via the Notification Manager, ensuring timely review and response. The Apply Internship component also includes mechanisms for students to withdraw applications if necessary, with relevant notifications sent to the company and the system updated accordingly.
+    \item \textbf{Search internship component:} The Search Internship component allows students to discover relevant internships by using various filters and search criteria. Users can perform keyword searches, apply filters based on required skills, or search by location and duration. The component queries the DBMS to retrieve matching internships and displays them in an organized list, complete with relevant details and application links.
+    \item \textbf{Create feedback component:} After an internship is completed, the Create Feedback component enables students and companies to provide feedbacks about their experience. Companies evaluate student performance, highlighting strengths and areas for improvement. Similarly, students can rate their experience with the company, providing insights into the quality of mentorship, project alignment, and overall satisfaction. This component compiles feedback into structured reports, which are stored in the DBMS. The feedback serves as valuable input for refining the recommendation algorithm, improving the accuracy of future matches by incorporating performance data and user satisfaction.
+    \item \textbf{View Candidates component:} This component allows companies to access and manage the list of students who have applied for their internships. Through an interactive dashboard, companies can view applicant profiles, download CVs, and review additional submitted documents. The component includes sorting and filtering tools. Additionally, it provides features for marking applicants as shortlisted, rejected, or accepted. Once candidates are selected, the component forwards their details to the Interview Manager, initiating the next phase of the recruitment process. Notifications are sent to the selected students, informing them of their application status.
 \end{itemize}
 
 \subsection{Profile Manager}
@@ -125,8 +125,8 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 \noindent The Profile Manager is the component :
 
 \begin{itemize}
-    \item \textbf{View Profile component:} .
-    \item \textbf{Update Profile component:} .
+    \item \textbf{View Profile component:} The View Profile component allows users to access and review profiles stored within the system. For students, this component displays their profile overview, including personal information, educational background, skills, and uploaded CVs. For companies, it provides access to student profiles that match internship postings or appear on recommendation lists. The component supports viewing profiles in detail and exporting them for offline review. The View Profile component integrates directly with the DBMS to ensure that profile data is current and reflective of the latest updates made by students.
+    \item \textbf{Update Profile component:} This component is designed to enable students to manage and update their profiles. Students can edit sections related to personal details, work experience, skills, and education. The Update Profile component performs real-time validation to ensure that all data entered adheres to format and completeness standards. Once submitted, the updated data is written to the DBMS via the Model component. The system also supports partial updates, allowing students to save progress and complete their profiles incrementally.
 \end{itemize}
 
 \subsection{Complaints Manager}
@@ -143,8 +143,8 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 \noindent The Complaints Manager is the component :
 
 \begin{itemize}
-    \item \textbf{Create Complaint component:} .
-    \item \textbf{Open Chat component:} .
+    \item \textbf{Create Complaint component:} The Create Complaint component allows users to file formal complaints about internships. This feature is available to both students and companies, providing a structured form to capture detailed descriptions of issues encountered during the internship process. The component sends complaints to the relevant university, which is notified through the Notification Manager. Complaints are logged in the DBMS, ensuring traceability and enabling further investigation if needed.
+    \item \textbf{Open Chat component:} This component facilitates direct communication between universities and users regarding complaints. It opens a secure chat channel, allowing real-time interaction to resolve issues efficiently.
 \end{itemize}
 
 \subsection{Interview Manager}
@@ -161,8 +161,8 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 \noindent The Interview Manager is the component :
 
 \begin{itemize}
-    \item \textbf{Create Task component:} .
-    \item \textbf{Select Candidates component:} .
+    \item \textbf{Create Task component:} The Create Task component is a key element of the selection process, enabling companies to design and assign practical exercises or technical assessments to candidates during the evaluation phase. This component assess students' technical skills and problem-solving abilities by simulating real-world scenarios or creating knowledge-based tests.
+    \item \textbf{Select Candidates component:} The Select Candidates component is crucial for the final phase of the selection process. This module allows companies to review task results, rank candidates based on performance, and finalize selections for internship offers or further interviews. It ensures that companies efficiently manage and evaluate large pools of applicants, streamlining decision-making and communication.
 \end{itemize}
 
 
