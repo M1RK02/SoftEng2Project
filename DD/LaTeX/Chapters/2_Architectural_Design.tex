@@ -106,7 +106,7 @@ Here we represent an overview of how the entire S\&C architecture is composed of
     \item \textbf{Create internship component:} This component facilitates the creation and publication of new internship offers by companies. It provides a structured form that guides users through defining essential parameters, such as internship title, required skills, project description, duration, and compensation details. Once the form is completed, the Create Internship component validates the input to ensure completeness and consistency. It then interfaces with the DBMS through the Model component to store the new internship in the database. If errors are detected during the validation process, the component provides immediate feedback, allowing the user to correct any issues before submission.
     \item \textbf{Modify internship component:} The Modify Internship component enables companies to update or delete existing internship postings. Users can access this component through the View Internship interface, selecting the internship they wish to edit. Changes made through the Modify Internship component are instantly propagated to the DBMS, ensuring all users view the most up-to-date information. 
     \item \textbf{Apply internship component:} The Apply Internship component is central to the student experience on the platform. It allows students to submit applications for internships directly through the system. Upon clicking the “Apply” button, the component gathers the student’s profile data, CV, and any additional required documents before forwarding the application to the target company. Companies are notified of new applications via the Notification Manager, ensuring timely review and response. The Apply Internship component also includes mechanisms for students to withdraw applications if necessary, with relevant notifications sent to the company and the system updated accordingly.
-    \item \textbf{Search internship component:} The Search Internship component allows students to discover relevant internships by using various filters and search criteria. Users can perform keyword searches, apply filters based on required skills, or search by location and duration. The component queries the DBMS to retrieve matching internships and displays them in an organized list, complete with relevant details and application links.
+
     \item \textbf{Create feedback component:} After an internship is completed, the Create Feedback component enables students and companies to provide feedbacks about their experience. Companies evaluate student performance, highlighting strengths and areas for improvement. Similarly, students can rate their experience with the company, providing insights into the quality of mentorship, project alignment, and overall satisfaction. This component compiles feedback into structured reports, which are stored in the DBMS. The feedback serves as valuable input for refining the recommendation algorithm, improving the accuracy of future matches by incorporating performance data and user satisfaction.
     \item \textbf{View Candidates component:} This component allows companies to access and manage the list of students who have applied for their internships. Through an interactive dashboard, companies can view applicant profiles, download CVs, and review additional submitted documents. The component includes sorting and filtering tools. Additionally, it provides features for marking applicants as shortlisted, rejected, or accepted. Once candidates are selected, the component forwards their details to the Interview Manager, initiating the next phase of the recruitment process. Notifications are sent to the selected students, informing them of their application status.
 \end{itemize}
@@ -147,20 +147,21 @@ Here we represent an overview of how the entire S\&C architecture is composed of
     \item \textbf{Open Chat component:} This component facilitates direct communication between universities and users regarding complaints. It opens a secure chat channel, allowing real-time interaction to resolve issues efficiently.
 \end{itemize}
 
-\subsection{Interview Manager}
-\label{subsec:interview_manager}%
+\subsection{Application Manager}
+\label{subsec:application_manager}%
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1\linewidth]{CD_DD/InterviewManager.png}
-        \caption{Interview Manager.}
-        \label{fig:interview_manager}%
+        \includegraphics[width=1\linewidth]{CD_DD/ApplicationManager.png}
+        \caption{Application Manager.}
+        \label{fig:application_manager}%
     \end{center}
 \end{figure}
 
-\noindent The Interview Manager is the component :
+\noindent The Application Manager is the component :
 
 \begin{itemize}
+    \item \textbf{View Application:}
     \item \textbf{Create Task component:} The Create Task component is a key element of the selection process, enabling companies to design and assign practical exercises or technical assessments to candidates during the evaluation phase. This component assess students' technical skills and problem-solving abilities by simulating real-world scenarios or creating knowledge-based tests.
     \item \textbf{Select Candidates component:} The Select Candidates component is crucial for the final phase of the selection process. This module allows companies to review task results, rank candidates based on performance, and finalize selections for internship offers or further interviews. It ensures that companies efficiently manage and evaluate large pools of applicants, streamlining decision-making and communication.
     \item \textbf{Complete Tasks:}
@@ -216,7 +217,7 @@ With the External Tool APIs the Application Server can contact the Tool Server a
 \subsection{Log in to the system}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/LogIn.png}
         \caption{Runtime view for 'Log in to the system'.}
         \label{fig:runtime_signupasED}%
     \end{center}
@@ -228,7 +229,7 @@ DESCRIPTION
 \subsection{Log out from the system}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/LogOut.png}
         \caption{Runtime view for 'Log out from the system'.}
         \label{fig:runtime_login}%
     \end{center}
@@ -240,7 +241,7 @@ DESCRIPTION
 \subsection{Register an account to S\&C}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/SignUp.png}
         \caption{Runtime view for 'Register an account to S\&C'.}
         \label{fig:runtime_createtournament}%
     \end{center}
@@ -252,7 +253,7 @@ DESCRIPTION
 \subsection{View and update their profile}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/ViewAndUpdateTheirProfile.png}
         \caption{Runtime view for 'View and update their profile'.}
         \label{fig:runtime_createtournament}%
     \end{center}
@@ -264,7 +265,7 @@ DESCRIPTION
 \subsection{Search for internships}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/SearchInternship.png}
         \caption{Runtime view for 'Search for internships'.}
         \label{fig:runtime_createbattle}%
     \end{center}
@@ -276,7 +277,7 @@ DESCRIPTION
 \subsection{Apply for an internship}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/ApplyInternship.png}
         \caption{Runtime view for 'Apply for an internship'.}
         \label{fig:runtime_joinbattle}%
     \end{center}
@@ -287,7 +288,7 @@ DESCRIPTION
 \subsection{Monitor the status of their applications}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[height=0.8\pdfpageheight]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/MonitorStatusApplication.png}
         \caption{Runtime view for 'Monitor the status of their applications'.}
         \label{fig:runtime_creategroup}%
     \end{center}
@@ -299,7 +300,7 @@ DESCRIPTION
 \subsection{Accept or reject internship offers}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{RuntimeView/}
+        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/EvaluationInternshipOffers.png}
         \caption{Runtime view for 'Accept or reject internship offers'.}
         \label{fig:runtime_openprofile}%
     \end{center}
