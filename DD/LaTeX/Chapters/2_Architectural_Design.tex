@@ -169,7 +169,7 @@ Here we represent an overview of how the entire S\&C architecture is composed of
 \section{Deployment View}
 \label{sec:deployment_view}%
 
-In this section it will be shown the Deployment diagram of the CKB system, followed by a description of the components and their interactions:
+In this section, the Deployment diagram of the S\&C system will be shown, followed by a description of the components and their interactions:
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=1\linewidth]{CD_DD/DeploymentDiagram.png}
@@ -179,34 +179,25 @@ In this section it will be shown the Deployment diagram of the CKB system, follo
 \end{figure}
 
 \paragraph{Personal Computer:}
-STs and EDs can access to the system by using any type of personal computer through their favorite web browser. The browser will communicate with the Web Server. Users can also use every device that allows them to search on a web browser, such as mobile phone, tablet, ecc.
+STs and CPs can access to the S\&C system through their preferred browser. The browser will communicate with the Web Server. Users can also use every device that allows them to search on a web browser, such as mobile phone, tablet, ecc.
 
 \paragraph{Web Server:}
-The Web Server provides access to the Application Server’s service to all the User that reaches the system through a web browser. In particular, the Web Server does not execute any business logic, but it simply does some load balancing on the receive requests from the client to the various Application Servers, in order to handle large User traffic.\\
-It also provides to the client's browsers the HTML, JSON, Javascript and CSS files for making the rendering of the pages.
+The Web Server provides access to the Application Server to everyone that access to the S\&C system through a web browser. It doesn't handle any logic for the system, but it has the very important task to balance the load request incoming from the users. It also provide all the necessary file to have a right render of the page, such as HTML, CSS, JSON and JavaScript.
 
 \paragraph{Firewall:}
 It provides a way to limit the attack surface of any potential intruder by providing strict access rules.
 
 \paragraph{Application Server:}
-The application server contains the business logic of the entire system. Moreover, it communicates to the client through HTTPS protocol managed by the Web Server. The various requests coming from the Web Server are routed to the corresponding module thanks to the Dashboard Manager.\\
-Furthermore, it communicates to the Database Server through the model gateway. This node is replicated in order to handle large user traffic.
+The application server contains all the logic at the base of the S\&C system. It communicates with the clients through HTTPS protocol managed by the Web Server. It also communicates with the Database Server through the DataBase Driver, with the Mail Server via SMTP  and with the Tool Server by using a dedicated API
 
 \paragraph{Database Server:}
-All the Data about Tournaments, Battles, Users, Groups and Badges are stored into the Database Server and managed by MySQL.\\
-The various Application Servers can retrieve information on this node through the model module and the database driver.
+All the data about Users, internships and matching are stored in the Database Server and managed by MySQL. The Application Servers can retrieve information by contacting the model module, which contacts the physical Database via the Database driver.
 
 \paragraph{Email Server:}
-After the registration, Users have to click on the link sent by eMail to confirm their profile. The Application Server, immediately after the registration, contacts the Email Server through SMTP protocol to send the confirmation eMail to the User.
-
-\paragraph{Github Server:}
-The dialogs with the Application Server node occur during the different Battle phases: when the ED creates a new Battle also a GitHub repository is created containing the code kata of the Battle and it is subsequently forked from the various STG.\\
-The GitHub Server is also periodically contacted for retrieving newly committed code on the main branch of the different STGs' repositories.
-For those scopes, the Application Server shall communicate with the Github Server through the SSH protocol.
-
+Once completed the registration process, Users have to confirm their profile by clicking on the link sent via Email by the Email Server. The application Server, after the registration process, contacts the Email Server through SMTP protocol to send the confirmation Email to the Users.
 
 \paragraph{Tool Server:}
-With the External Tool APIs the Application Server can contact the Tool Server and pass to it the code retrieved from the Github Server to be tested and evaluated.
+With the External Tool APIs, the Application Server can send useful information to the Tool Server, enhancing the precision of the algorithm. Furthermore the Application Server can decide to run the algorithm to retrieve other matches and send the notification to the related Users.
 
 \newpage
 \section{Runtime View}
