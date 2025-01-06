@@ -705,43 +705,46 @@ DESCRIPTION
 
 \section{Selected Architectural Styles and Patterns}
 \label{sec:selected_Srchitectural_styles_patterns}%
+This section describes the key architectural styles and patterns chosen for the development of the system. The architecture of the application is structured to ensure scalability, maintainability, and ease of development. The three primary patterns implemented are the 3-tier architecture, Model-View-Controller (MVC) and the use of APIs to facilitate communication between components.
 
-CodeKataBattle will be developed over a \textbf{3-Tier architecture}, which is a software application architecture that organizes applications into three logical and physical computing tiers. Each tier runs on its own infrastructure, so the complexity of the system is reduced, its flexibility and scalability is enhanced. Each tier may be developed simultaneously by separate teams of developers and can be updated or scaled as needed without impacting the other tiers.
-\\
-The system is modularized over three independent tiers:
+\subsection{3-tier Architecture}
+The system uses a 3-tier architecture so the application is divided into three layers:
 \begin{itemize}
-    \item \textbf{Presentation Tier:} this is the top-level tier, that directly interacts with the Users. Its goal will be to collect the Users’ inputs and show them the outputs produced by the lower tiers. 
-    \item \textbf{Application Tier:} this is the middle level tier. The Application Tier processes the Users’ requests that arrive from the Presentation Tier, perform the necessary computation, even retrieving or storing data on the Data Tier, and computes that data in order to complete specific tasks requested by the Users. This tier needs to handle several requests by different Users simultaneously, while guaranteeing the security and integrity of the stored data.
-    \item \textbf{Data Tier:} this is the lowest level tier. The Data Tier stores, retrieves and manages data used or produced by the Application Tier by the DataBase System’s APIs.
+    \item \textbf{Presentation Layer:} This layer handles the user interface (UI) and is responsible for interacting with the users. It receives user input, sends requests to the application layer, and displays the results.
+    \item \textbf{Application Layer:} Also known as logic layer, this component processes the input from the presentation layer, applies the necessary logic, and interacts with the data layer.
+    \item \textbf{Data Layer:} The data layer is responsible for managing the database and performing CRUD (Create, Read, Update, Delete) operations. It provides data to the application layer as requested.
 \end{itemize}
+This architectural style enhances modularity and allows each layer to be developed and maintained independently, ensuring better scalability and fault isolation.
 
-For a more detailed description of the tiers and their components, please refer to \ckbautoref{sec:deployment_view}.\\
-The behavior of the system will be mostly as a \textbf{Client-Server architecture}, in which the Client represents the front-end user interface, as it is the connection point between the final Users of the system and the system itself, meanwhile the Server represents the backend platform, as it elaborates the Users’ requests, computes and shows the answers. In a pure Client-Server architecture, the Server is always the one to make the request, while the server is a passive element, which handles and elaborates the requests of the Client and returns the answers to them. In some cases, such as when the process of sending the notifications or the interaction with the External Tools, the Server needs to perform operations without being invoked by the Client first, which makes it an active component and having a more Event Driven behavior.
-\\
-The Client-Server interactions are performed through \textbf{REST APIs}, a set of commands commonly used in the context of web transactions. The \textit{Representational State Transfer} consists in the use of a stateless Server, that means that the Client is the component that needs to communicate the state of the transaction to the Server. This approach allows the Server to be more scalable and helps with handling many requests that concern different states simultaneously. The components communicate by transferring a representation of a resource in a format that the Server is able to process, this allows the usage of HTTP protocol to share data and to encode those using the JSON format.
-\\
-The implementation of CKB will follow the \textbf{Model-View-Controller} pattern, which is a software design pattern that splits the software into three elements interconnected with each other: 
+\subsection{Model-View-Controller (MVC)}
+The application follows the Model-View-Controller (MVC) pattern to separate concerns and improve code organization. The application is divided into three logical components:
 \begin{itemize}
-    \item \textbf{Model:} contains the methods that manage the data. It provides methods for saving, retrieving and manipulating data from the database.
-    \item \textbf{View:} the view is the part that concerns the visual representation of the data for the final user.
-    \item \textbf{Controller:} acts as a connection point between the view and the model. The controller handles the users’ interactions with the view and processes the operations.
+    \item \textbf{Model:} Represents the data and the business logic of the application. It responds to requests for information and updates the state of the application.
+    \item \textbf{View:} Responsible for presenting data to the user. The view receives data from the model and displays it to the user in a suitable format.
+    \item \textbf{Controller:} Manages user input and interacts with the model. It processes incoming requests, executes the appropriate logic, and returns the result through the view.
 \end{itemize}
+This pattern ensures separation of concerns, making the codebase easier to manage and extend.
+
+\subsection{APIs}
+The system relies on APIs (Application Programming Interfaces) to facilitate communication between different modules and external services. APIs are used to:
+\begin{itemize}
+    \item Enable interaction between the frontend and backend systems.
+    \item Integrate with third-party tools and external databases.
+\end{itemize}
+APIs provide a standardized way to access application logic, ensuring modularity, reusability, and flexibility in integrating new features.
 
 \section{Other Design Decisions}
 \label{sec:other_design_decisions}%
+This section explains other design decisions that have been made to improve different aspects of the system.
 
 \subsection{Availability}
-The introduction of load balancing and replication mechanisms significantly enhances the reliability and availability of our system. Load balancing optimizes resource utilization by distributing requests evenly across servers, preventing performance bottlenecks.\\ Concurrently, replication ensures fault tolerance by duplicating essential data and services. This redundancy minimizes the impact of potential failures, fortifying our system to maintain consistent data management and service availability even in challenging scenarios.
+Ensuring high availability is crucial for maintaining uninterrupted access to the system. Redundancy, load balancing, and failover mechanisms are implemented to minimize downtime and handle unexpected failures. The system is designed to operate across multiple servers and data centers, providing resilience against localized outages.
 
 \subsection{Scalability}
-Microservices architecture, at its core, is meticulously crafted to be both independently deployable and inherently scalable. This design philosophy enables each microservice to be deployed autonomously, facilitating swift updates and modifications without disrupting the entire system. Beyond this, the scalability aspect of microservices empowers our system to gracefully handle increased demands by efficiently scaling specific services.
+The architecture is designed to scale horizontally by adding more servers or services as the user base grows. Microservices and containerization are employed to allow seamless scaling of individual components. This ensures the system can handle increasing workloads without significant redesign.
 
+\subsection{Data Storage}
+A distributed database system is used to manage large volumes of data while ensuring fault tolerance and data consistency. Replication strategies are implemented to enhance data durability and performance.
 
-\subsection{Notification Handling}
-Notification management plays a pivotal role in the CKB system, influencing every stage from Tournament, Battle or STG creation to their conclusion. Notifications in CKB are orchestrated to reach users upon login or, if a User is already logged in, immediately when they become available. This approach guarantees that Users are promptly informed about key events, such as Tournament, Battle or STG creation. 
-
-\subsection{Ease of Deployment} 
-The adoption of microservices architecture introduces a notable advantage in ease of deployment. This methodology empowers the implementation of changes to individual services independently, allowing for seamless deployment without impacting the entire system. In the event of issues, the microservices approach facilitates swift identification, isolation, and correction, eliminating the need to halt the entire system. This deployment flexibility not only accelerates the release of updates but also enhances the system's resilience and agility, enabling efficient troubleshooting and maintenance processes.
-
-\subsection{Data Storage} 
-To enhance operational efficiency and simplify data management, we've chosen a unified DBMS containing information about Users, Tournaments, Group, Badges and Battles. This approach reduces the time and complexity associated with retrieving and updating data, leveraging interconnected relationships among these components.
+\subsection{Security}
+Security measures are embedded at every level of the architecture. Data encryption and secure communication protocols (such as HTTPS) are part of the strategy to protect sensitive information. Role-based access control is used to restrict access to specific parts of the system, ensuring that only authorized users can perform certain actions.
