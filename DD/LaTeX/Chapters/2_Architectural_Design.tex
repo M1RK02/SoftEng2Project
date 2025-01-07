@@ -206,14 +206,13 @@ With the External Tool APIs, the Application Server can send useful information 
 \subsection{Log in to the system}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/LogIn.png}
+        \includegraphics[width=0.75\linewidth]{DD/LaTeX/Images/RuntimeView/LogIn.png}
         \caption{Runtime view for 'Log in to the system'.}
         \label{fig:runtime_LogIn}%
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram illustrates the login process for different types of users. The Client accesses the S\&C website, initiating the login by submitting credentials (email and password). The WebServer forwards the request to the DashboardManager, which interacts with the LoginManager to validate the provided credentials. The LoginManager queries the Model to verify the user's information against the database. Depending on the user's type (Company, Student, or University), the system retrieves relevant data, such as published internships or recommended offers, and displays the appropriate homepage. In case of invalid credentials, an error message is shown, and the login form is presented again to the Client.
 
 \subsection{Log out from the system}
 \begin{figure}[H]
