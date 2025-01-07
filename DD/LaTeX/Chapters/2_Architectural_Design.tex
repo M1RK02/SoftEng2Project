@@ -532,17 +532,28 @@ This sequence diagram shows how the Users are notified about a new matching. Per
 \item GetCompletedInternships(\textit{String} email)
 \item SaveFeedback(\textit{String} email, \textit{String} internshipId, \textit{String} text)
 \item GetAppliedInternship(\textit{String} email)
-\item SaveComplaint(\textit{String} email, \textit{String} internshipId, \textit{String} text)
+\item SaveComplaintOnInternship(\textit{String} email, \textit{String} internshipId, \textit{String} text)
 \item SaveComplaint(\textit{String} companyEmail, \textit{String} studentEmail, \textit{String} text)
 \item GetStudentUniversity(\textit{String} email)
 \item SaveNewInternship(\textit{String} companyEmail, \textit{String} name,  \textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
 \item GetInterestedStudents(\textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
 \item SaveChanges(\textit{String} internshipId, field, content)
-\item CancelInterneship(\textit{String} internshipId)
+\item RemoveInterneship(\textit{String} internshipId)
 \item GetSuggestedStudents(\textit{String} internshipId)
 \item SaveInvitation(\textit{String} sutendEmail, \textit{String} internshipId)
 \item GetApplyRequest(\textit{String} internshipId)
 \item GetStudentInformation(\textit{String} email)
+\item GetStudentsApplying()
+\item SaveQuestionnaires(companyEmail, studentEmail, questions)
+\item ViewCandidates(\textit{String} internshipId)
+\item FinalizeInternshipSelection(\textit{String} internshipId)
+\item SaveFeedbackOnIntern(\textit{String} studentEmail, \textit{String} companyEmail, \textit{String} txt)
+\item SaveComplaintOnIntern(\textit{String} companyEmail, \textit{String} studentEmail, \textit{String} text)
+\item GetOpenComplaints(\textit{String} universityEmail)
+\item ResolveComplaint(\textit{String} complaintId)
+\item CancelInternship(\textit{String} applicationId)
+\item CheckNewFeedback()
+\item CheckNewProfiles()
 \end{itemize}
 
 
@@ -599,28 +610,35 @@ This sequence diagram shows how the Users are notified about a new matching. Per
     \item \textbf{\textbf{ApplicationManager}}
 \begin{itemize}
         \item SubmitQuestionnaire(\textit{List<String>} answers)
+        \item CreateNewTask(\textit{List<String>} studentEmails)
+        \item SelectStudents(\textit{List<String>} studentEmails)
+        \item CreateFeedbackOnIntern(\textit{String} studentEmail)
+        \item CreateNewFeedbackOnIntern(\textit{String} studentEmail, \textit{String} companyEmail, \textit{String} txt)
 \end{itemize}
 
     \item \textbf{\textbf{ComplaintManager}}
 \begin{itemize}
-        \item MakeComplaint(\textit{String} internshipId)
-        \item CreateNewComplaint(\textit{String} email, \textit{String} internshipId, \textit{String} text)
-        \item 
+        \item MakeComplaintOnInternship(\textit{String} internshipId)
+        \item CreateNewComplaintOnInternship(\textit{String} email, \textit{String} internshipId, \textit{String} text)
+        \item MakeComplaintOnIntern(\textit{String} studentEmail)
+        \item CreateNewComplaintOnIntern(\textit{String} companyEmail, \textit{String} studentEmail, \textit{String} text)
+        \item OpenChat(\textit{String} studentEmail)
 \end{itemize}
 
     \item \textbf{\textbf{RecommendationManager}}
 \begin{itemize}
         \item InformInterestedStudents(\textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
+        \item NewMatches(\textit{})
 \end{itemize}
 
 \end{itemize}
 
 \begin{itemize}
-    \item \textbf{\textbf{JoinBattle}}
+    \item \textbf{\textbf{EwternalToolServer}}
 \begin{itemize}
-    \item 
+    \item AddNewFeedbacks(\textit{List<String>} feedbacks)
+    \item AddNewProfiles(List<Student> profiles)
     \end{itemize}
-
 
     \item \textbf{\textbf{CreateGroup}}
 \begin{itemize}
@@ -644,6 +662,12 @@ This sequence diagram shows how the Users are notified about a new matching. Per
         \item NewComplaintNotification(\textit{String} companyEmail, \textit{String} studentEmail)
         \item NewInternshipNotification(\textit{String}  companyName, \textit{String} internshipName, \textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
         \item NewInviteNotification(\textit{String} studentEmail, \textit{String} internshipId)
+        \item NewQuestionnairesNotification(\textit{String} studentEmail)
+        \item NewSelectionNotification(\textit{String} studentEmail)
+        \item NewRejectionNotification(\textit{String} studentEmail)
+        \item NewChatRequestNotification(String email)
+        \item NewCancelInternshipNotification(\textit{String} internshipId)
+        \item NewMatchNotification(\textit{String} studentEmail, \textit{String} companyEmail)
 \end{itemize}
 
 \end{itemize}
