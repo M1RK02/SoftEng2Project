@@ -239,7 +239,7 @@ This sequence diagram represents the process of user registration on the platfor
 \subsection{View and update their profile}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{DD/LaTeX/Images/RuntimeView/ViewAndUpdateTheirProfile.png}
+        \includegraphics[width=\linewidth]{DD/LaTeX/Images/RuntimeView/ViewAndUpdateTheirProfile.png}
         \caption{Runtime view for 'View and update their profile'.}
         \label{fig:runtime_ViewAndUpdateTheirProfile}%
     \end{center}
@@ -423,8 +423,6 @@ This sequence diagram illustrate the process for providing feedback on interns. 
 
 This sequence diagram represents the process of filing a complaint, from a CP to a ST. The CP navigates to the application progress page of the student, so it can click on the button “create complaint”, which creates a requests that is sent to the DashboardManager and redirected to the complaint manager for retrieving the pop-up complaint form. The CP can now fill the form with all the necessary information, such as a brief description of what is not going as expected. The form is sento to the DashboardManager with all the necessary parameters (company email, student email and the text description), that redirects the request to the ComplaintManager module, which manage to save the complaint in the DBMS by making a request to the Model module, and also to create a new Complaint Notification that will be sent to the ST university, with a confirmation receipt for the CP.
 
-
-
 \subsection{Monitor the status of all internships}
 \begin{figure}[H]
     \begin{center}
@@ -435,8 +433,6 @@ This sequence diagram represents the process of filing a complaint, from a CP to
 \end{figure}
 
 This sequence diagram describes how a UV can monitor the status of all of their student involved in internships. The UV on it’s home page, click on a view profile button related to a student, so a request of a ST profile is created and handled by the DashboardManager, that forwards it to the ProfileManager, which manages to retrieve the useful information on the DBMS by making a request to the Model module, who is going to create a query for the Database and send back to the ProfileManager all the needed information, adding them to the ViewProfilePage that will be sent directly to the University. Landed on that page, the University can click on the Application Progress Button for viewing the Application Progress Page. After the click, a request is sent to the DashboardManager, which forwards the request to the ApplicationManager, that through the model retrieve the data of the Student about his progression on the internship, adds them to the Application Progress Page and sends back the page to the university.
-
-
 
 \subsection{Handle complaints from students or companies}
 \begin{figure}[H]
@@ -449,8 +445,6 @@ This sequence diagram describes how a UV can monitor the status of all of their 
 
 This sequence diagram represents the process of handling any complaint. The university by clicking on the “complaint section” button generates a requests with the university’s email as parameter, to the DashboardManager, which forwards it to the ComplaintManager. After that, the ComplaintManager asks directly to the Model module to retrieve the data from the DBMS, and after receiving them, manages to dynamically create the page, that will be sent back to the university passing through the DashboardManager. At this point, the University can see the list of all complaints made from students or companies. In any case of complaints, if the University wants to resolve the problem, it should open the chat with the complaining part, and does that by clicking on the “open chat” button, which generates a request with the user email as a parameter, that is sent to the DashboardManager and redirected to the ComplaintManager. This module now has the task to notify the complaining part about a request of opening chat by the University, and does that by sending a request to the NotificationManager with the user email as a parameter, so this component can directly send to that user a NewChatRequest notification. When the problem is solved, the University can click on the “Close Complaint” button, so this generates a request to the DashboardManager with the complaintId as a parameter, which forwards it directly to the ComplaintManager, that manage to save the status of the complaint on the DBMS by contacting the Model module.
 
-
-
 \subsection{Cancel problematic internships}
 \begin{figure}[H]
     \begin{center}
@@ -461,8 +455,6 @@ This sequence diagram represents the process of handling any complaint. The univ
 \end{figure}
 
 This sequence diagram represents the process of canceling an internship. When a university is not able to solve a complaint by chatting with the complained part, it can decide to cancel the internship. To do that, the University has to click on the “Cancel Internship” button present on the ManageComplaint page, so this generates a request with the applicationId that is sent to the DashboardManager, that forwards the request to the ComplaintManager, which has the tasks of deleting the relation between the student and the internship on the DBMS by contacting the Model module, and also to notify both the student and the company about the cancellation. For doing so, the ComplaintManager has to send a request to the NotificationManager, which manages to directly send the notification to both parts to inform them about the interruption.
-
-
 
 \subsection{Collect feedback from companies and students to improve matching}
 \begin{figure}[H]
@@ -475,7 +467,6 @@ This sequence diagram represents the process of canceling an internship. When a 
 
 This sequence diagram shows flow of collecting feedbacks from the users and improving the recommendation process. Periodically the subcomponent of the RecommendationManager, the AutomatedTrigger, checks for new feedback by creating a request that is sent to the Model. If new feedbacks are found, those are sent to the External Tool Server for retraining the algorithm.
 
-
 \subsection{Notify users about a new match}
 \begin{figure}[H]
     \begin{center}
@@ -487,17 +478,14 @@ This sequence diagram shows flow of collecting feedbacks from the users and impr
 
 This sequence diagram shows how the Users are notified about a new matching. Periodically, the subcomponent AutomatedTrigger of the RecommendationManager check for new profiles by creating a request to the Model module. If new profiles were inserted after the last check, the DBMS return to the model all the tuples of profiles that were inserted, resending them to the AutomatedTrigger. After that, the component can proceed to trigger the algorithm on the External Tool Server by sending to it the list of new users profiles, so the algorithm runs and the output is sent back to the Automated Trigger. Now the trigger is left with the only task to notify the users involved in the new matchings, and does that by creating a request to the NotificationManager, with both student and company email as parameters. If at the initial query of checking for new profiles returns null, that means that no new profiles were inserted from the last check, so there is no reason to run again the algorithm.
 
-
-
-
-
+\newpage
 \section{Component Interfaces}
 \label{sec:component_interfaces}%
 \begin{itemize}
     \item \textbf{\textbf{WebServer} }(contains all the interfaces belonging to other managers, apart from NotificationManager and Model)
     \begin{itemize}
 
-\item request(login)
+\item Request(login)
 \item AddUserToTheSession(\textit{String} email, \textit{String} password)
 \item Logout()
 \item GoToUpdateProfilePage()
@@ -512,10 +500,10 @@ This sequence diagram shows how the Users are notified about a new matching. Per
 
 \item CheckCredentials(\textit{String} email, \textit{String} password)
 \item GetPublishedInternships(\textit{String} email)
-\item GetStudentRecmmendedInternships(\textit{String} email)
+\item GetStudentRecommendedInternships(\textit{String} email)
 \item GetUniversityEngagedStudents(\textit{String} email)
 \item CheckEmail(\textit{String} email)
-\item SaveNewuserCredentials(String name, \textit{String} surname, \textit{String} email, \textit{String} password)
+\item SaveNewUserCredentials(String name, \textit{String} surname, \textit{String} email, \textit{String} password)
 \item GetUser(\textit{String} email)
 \item SaveChanges(\textit{String} email, \textit{String} field, \textit{String} content)
 \item GetInternshipFromSearch(\textit{String} keyword)
@@ -586,7 +574,6 @@ This sequence diagram shows how the Users are notified about a new matching. Per
         \item SelectUser(\textit{String} email)
         \item UpdateProfile(\textit{String} email, \textit{String} field, \textit{String} content)
         \item ValidateChanges(\textit{String} field, \textit{String} content)
-        \item 
 \end{itemize}
 
     \item \textbf{\textbf{InternshipManager}}
@@ -634,26 +621,11 @@ This sequence diagram shows how the Users are notified about a new matching. Per
 \end{itemize}
 
 \begin{itemize}
-    \item \textbf{\textbf{EwternalToolServer}}
+    \item \textbf{\textbf{ExternalToolServer}}
 \begin{itemize}
     \item AddNewFeedbacks(\textit{List<String>} feedbacks)
     \item AddNewProfiles(List<Student> profiles)
     \end{itemize}
-
-    \item \textbf{\textbf{CreateGroup}}
-\begin{itemize}
-        \item 
-\end{itemize}
-
-    \item \textbf{\textbf{ViewBattle}}
-    \begin{itemize}
-        \item 
-\end{itemize}
-
-    \item \textbf{\textbf{EndBattle}}
-\begin{itemize}
-        \item 
-\end{itemize}
 
     \item \textbf{\textbf{NotificationManager}}
 \begin{itemize}
