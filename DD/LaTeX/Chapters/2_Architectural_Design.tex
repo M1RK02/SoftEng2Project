@@ -212,7 +212,7 @@ With the External Tool APIs, the Application Server can send useful information 
     \end{center}
 \end{figure}
 
-This sequence diagram illustrates the login process for different types of users. The Client accesses the S\&C website, initiating the login by submitting credentials (email and password). The WebServer forwards the request to the DashboardManager, which interacts with the LoginManager to validate the provided credentials. The LoginManager queries the Model to verify the user's information against the database. Depending on the user's type (Company, Student, or University), the system retrieves relevant data, such as published internships or recommended offers, and displays the appropriate homepage. In case of invalid credentials, an error message is shown, and the login form is presented again to the Client.
+This sequence diagram illustrates the login process for different types of users. The Client accesses the S\&C website, initiating the login by submitting credentials (email and password). The WebServer forwards the request to the DashboardManager, which interacts with the LoginManager to validate the provided credentials. The LoginManager queries the Model to verify the user's information on the database. Depending on the user's type (Company, Student, or University), the system retrieves relevant data, such as published internships or recommended offers, and displays the appropriate homepage. In case of invalid credentials, an error message is shown, and the login form is presented again to the Client.
 
 \subsection{Log out from the system}
 \begin{figure}[H]
@@ -223,8 +223,7 @@ This sequence diagram illustrates the login process for different types of users
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram represents the logout process. The Client initiates the logout by sending a request to the WebServer. Upon receiving the request, the WebServer invalidates the user session, ensuring the client is logged out. The WebServer then redirects the Client to the login form, completing the process.
 
 \subsection{Register an account to S\&C}
 \begin{figure}[H]
@@ -235,8 +234,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram represents the process of user registration on the platform. The Client accesses the S\&C website and is presented with the login form. Upon selecting 'Create an Account,' the request is processed through the WebServer, DashboardManager, and RegistrationManager, which returns a signup form to the Client. The Client submits personal information, including name, surname, email, and password. The WebServer forwards the data through the DashboardManager to the RegistrationManager, which verifies the email’s uniqueness by querying the database. If the email is already linked to an account, an error message is sent back to the Client, and the login form is shown again. Otherwise, the system proceeds to send a confirmation email. Upon receiving a reply from the EmailServer, the new user credentials are saved in the database, and the Client is redirected to their homepage, completing the registration process.
 
 \subsection{View and update their profile}
 \begin{figure}[H]
@@ -247,8 +245,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram illustrates the process through which a student can view and update their profile on the S\&C platform. Initially, the student accesses the update profile page via the WebServer. The WebServer forwards the request to the DashboardManager, which interacts with the ProfileManager (ViewProfile) component to retrieve user data from the Model by querying the database. The retrieved information is then displayed on the profile update page. If the student decides to update their profile, the changes are submitted to the WebServer, which processes the request through the DashboardManager. The update is handled by the ProfileManager (UpdateProfile) component, which validates the changes. If the format is correct, the new information is saved to the database, and the updated profile page is displayed. In case of an error in the format, the student receives an error message while remaining on the update profile page.
 
 \subsection{Search for internships}
 \begin{figure}[H]
@@ -259,8 +256,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram represents the process through which a student searches for internships on the S\&C platform. The student initiates the search by entering a keyword, which is sent to the WebServer. The WebServer forwards the request to the DashboardManager, which interacts with the InternshipManager (ViewInternship) to retrieve relevant internships from the database via the Model by querying the database. If internships matching the keyword are found, they are displayed to the student in the search results. If no matching internships exist, an error message is returned indicating that no results were found.
 
 \subsection{Apply for an internship}
 \begin{figure}[H]
@@ -270,8 +266,8 @@ DESCRIPTION
         \label{fig:runtime_ApplyInternship}%
     \end{center}
 \end{figure}
-DESCRIPTION
 
+This sequence diagram illustrates the process of applying for an internship on the S\&C platform. The student begins by requesting detailed information about a specific internship. This request is handled by the WebServer, which retrieves the relevant data from the DashboardManager and InternshipManager by querying the database through the Model. Once the internship details are displayed, the student proceeds to apply. The WebServer forwards the application request to the DashboardManager, which delegates it to the ApplyInternship component. The system validates the student's eligibility and, if successful, saves the application in the database. A notification is then sent to the company offering the internship via the NotificationManager. If the student is not eligible to apply, an error message is returned, informing them of the issue.
 
 \subsection{Monitor the status of their applications}
 \begin{figure}[H]
@@ -282,8 +278,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram represents the process through which a student monitors the status of their internship applications. The student begins by requesting a list of their applications from the WebServer. The request is passed through the DashboardManager to the ApplicationManager (ViewProgress), which retrieves the relevant data by querying the database via the Model. If applications are found, they are displayed to the student on the homepage. The student can then select a specific application to view its current status. This triggers another query to fetch detailed information about that application, which is than presented on the application progress page. If no applications exist, an error message is returned, informing the student that no records are available.
 
 \subsection{Accept or reject internship offers}
 \begin{figure}[H]
@@ -294,8 +289,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram illustrates the process by which a student accepts, or rejects internship offers on the S\&C platform. The student initiates the process by requesting a list of available offers. This request is forwarded by the WebServer through the DashboardManager to the ApplicationManager, which queries the database for matching offers via the model. If offers are available, they are displayed to the student. The student can then select a specific internship to view more details. This triggers a request to the InternshipManager to retrieve detailed information about the selected internship. If the student decides to accept the offer, the WebServer forwards the acceptance to the ApplyInternship component, which initiates the application process and updates the status in the database. Conversely, if the student rejects the offer, the system removes the application entry from the database, and a confirmation message is shown to the student. If no offers are found, the system returns an error message indicating the absence of available offers.
 
 \subsection{Complete questionnaires from companies}
 \begin{figure}[H]
@@ -306,8 +300,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram illustrates the process by which a student completes and submits questionnaires assigned by companies as part of an internship application. The student begins by checking the status of their applications through the WebServer. This request is forwarded through the DashboardManager to the ApplicationManager, which queries the database for relevant application information. If pending questionnaires are available, the student selects a specific task to complete. The WebServer processes this request by retrieving the task details from the database via the CompleteTasks component of the ApplicationManager. After filling out the questionnaire, the student submits the answers through the WebServer, triggering a process to save the responses in the database. A confirmation message is returned to the student, indicating successful submission. If no questionnaires are available, the student simply views the application progress page without further actions.
 
 \subsection{Provide feedback on completed internships}
 \begin{figure}[H]
@@ -318,8 +311,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+The sequence diagram shows how a student provides feedback on a completed internship. First, the student requests a list of completed internships from the WebServer that contacts the DashboardManager and the InternshipManager, which queries the database via the model. If no completed internships are found, an error message is shown to the student. If internships exist, they are displayed on the student's homepage. The student selects an internship and views its details, which are retrieved from the Model by querying the database. The student then chooses to provide feedback and a form to submit a feedback is prompted to him. After the student submits the feedback, the WebServer sends the data to the DashboardManager, which saves it in the database. Finally, a confirmation message is sent back to the student.
 
 \subsection{File complaints about internships}
 \begin{figure}[H]
@@ -330,8 +322,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+The sequence diagram illustrates the process for a student to file complaints about internships. Initially, the student requests a list of applied internships by sending a request to the WebServer, which queries the DashboardManager and the InternshipManager. The internships in progress are retrieved from the Model and database and displayed on the student's homepage. Than the student clicks on a specific application and details are retrieved and displayed on the student's progress page. The student then chooses to make a complaint about the internship. The WebServer forwards the request to the DashboardManager, which invokes the ComplaintManager to create a complaint form. The form is returned to the student via the WebServer and DashboardManager. The student submits the complaint with relevant details, which are stored in the database. After saving the complaint, the NotificationManager is triggered to send a notification to the student's university. The NotificationManager retrieves the university's email from the Model and sends the notification. Finally, the DashboardManager sends a confirmation message to the student, signaling the completion of the complaint process.
 
 \subsection{Create and publish internships}
 \begin{figure}[H]
@@ -342,8 +333,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+The sequence diagram shows how a company creates and publishes an internship. First, the company requests to create an internship, and the WebServer forwards the request to the DashboardManager, which triggers the InternshipManager to present a form for the internship details. The company submits the internship information, and the system checks if the data is valid. If the data is valid, the internship is saved in the Model and database. The InternshipManager then informs interested students by notifying the RecommendationManager, which retrieves the list of interested students from the Model and sends notifications through the NotificationManager. Each student receives a notification about the new internship. Finally, a confirmation message is sent to the company, signaling the successful creation and publication of the internship. If the data is invalid, an error message is sent back to the company.
 
 \subsection{View and manage published internships}
 \begin{figure}[H]
@@ -354,8 +344,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+The sequence diagram illustrates how a company can view and manage its published internships. First, the company retrieves internship details by providing the internship ID, which is processed by the WebServer and DashboardManager, eventually fetching the information from the Model and DBMS, and displaying it in the Internship View Page. If the company wants to update an internship, they submit the update request to the WebServer, which forwards it to the DashboardManager and the InternshipManager. The InternshipManager validates the changes. If the changes are valid, the new data is saved in the DBMS. If the company wants to delete the internship, they initiate the deletion process, which is handled by the DashboardManager and InternshipManager. The internship is removed from the database, and the company is redirected to the Company Home Page with confirmation of the deletion. If any updates or changes fail due to format issues, an error message is shown to the company.
 
 \subsection{View recommended students for internships}
 \begin{figure}[H]
@@ -366,8 +355,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+The sequence diagram shows the process where a company views recommended students for internships. Initially, the company retrieves internship details by providing the internship ID. The WebServer and DashboardManager process this request and fetch the relevant internship information from the Model and DBMS, displaying it on the Internship View Page. Next, the company requests a list of suggested students for the internship. This request is forwarded to the RecommendationManager, which retrieves the list of suggested students from the Model and DBMS. If there are suggested students, their details are displayed in the Internship View Page. If there are no suggested students, an error message is shown indicating that there are no suggested students for the internship.
 
 \subsection{Contact students for internships}
 \begin{figure}[H]
@@ -378,7 +366,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
+The sequence diagram illustrates the process where a company contacts students for internships. First, the company retrieves the student's profile by providing their email. The WebServer, DashboardManager, and ProfileManager fetch the student's information from the Model and DBMS, displaying it on the View Profile Page. After reviewing the profile, the company decides to invite the student for the internship. The WebServer forwards the invitation request to the DashboardManager, which calls the InternshipManager to handle the invitation process. The system validates the session, stores the invitation in the Model, and sends a notification to the student about the internship invitation. The student receives the notification, which includes details of the internship. The company is redirected to the Application Progress Page.
 
 \subsection{Accept student applications}
 \begin{figure}[H]
@@ -389,8 +377,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+The sequence diagram illustrates the process of a company managing internship applications. The company retrieves internship details through the WebServer, DashboardManager, InternshipManager, and Model, which interacts with the DBMS. The DashboardManager then displays the information. When reviewing applications, the company requests the list of applicants. This is fetched by the ApplicationManager, which queries the Model and DBMS to retrieve the data. The company can then review the student’s profile, with the ProfileManager retrieving student information from the DBMS. If the company accepts or rejects an application, the decision is passed through the WebServer, DashboardManager, and ApplicationManager. The Model updates the application status, and the NotificationManager notifies the student of the outcome. If no applications are available, the company receives an error .
 
 \subsection{Submit questionnaires for students}
 \begin{figure}[H]
@@ -401,8 +388,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+The sequence diagram illustrates the process of a company submitting questionnaires to students. The company begins by initiating a task creation request through the WebServer, which forwards it to the DashboardManager and then to the ApplicationManager. The ApplicationManager queries the Model to retrieve a list of students applying for internships from the DBMS, and this data is displayed on the company's homepage. Next, the company creates a new task and submits a form through the WebServer, which sends the submission to the DashboardManager and ApplicationManager. The form data is validated, and if valid, the questionnaires are saved in the DBMS. The NotificationManager then sends notifications to each student about the new questionnaires. If the data is invalid, the company is informed of the error.
 
 \subsection{Finalize the selection process}
 \begin{figure}[H]
@@ -413,8 +399,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram illustrates the process of finalizing the selection of candidates for an internship. The company starts by viewing the list of candidates through the WebServer, which communicates with the DashboardManager and ApplicationManager to retrieve the list of students from the Model. The Model queries the DBMS for the list of applicants and sends the results back to be displayed on the company's homepage. Once the company selects the students, this information is forwarded to the ApplicationManager, which finalizes the selection in the DBMS. Notifications are then sent to both selected and rejected students via the NotificationManager. After the notifications are dispatched, the company's homepage is updated and displayed back to the company, completing the selection process.
 
 \subsection{Provide feedback on interns}
 \begin{figure}[H]
@@ -425,8 +410,7 @@ DESCRIPTION
     \end{center}
 \end{figure}
 
-DESCRIPTION
-
+This sequence diagram illustrate the process for providing feedback on interns. The company begins by checking the application status through the WebServer, which forwards the request to the DashboardManager and the ApplicationManager to retrieve application details from the Model. The Model queries the DBMS for the application status and returns the relevant information, which is displayed on the company's progress page. The company initiates the feedback creation and is presented with a form. Next, the company submits the feedback for a selected intern by submitting the intern's email, company email, and feedback text. This request flows from the WebServer to the DashboardManager and the ApplicationManager, where the feedback is saved in the Model. The feedback is then stored in the DBMS. Once the feedback is saved, a confirmation message is displayed back to the company, completing the feedback submission process.
 
 \subsection{File complaints about students}
 \begin{figure}[H]
