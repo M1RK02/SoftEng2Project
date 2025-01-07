@@ -494,124 +494,121 @@ DESCRIPTION
 \section{Component Interfaces}
 \label{sec:component_interfaces}%
 \begin{itemize}
-    \item \textbf{\textbf{Login}}
+    \item \textbf{\textbf{WebServer} }(contains all the interfaces belonging to other managers, apart from NotificationManager and Model)
     \begin{itemize}
 
-\item Login(\textit{String} nickname, \textit{String} password)
-\end{itemize}
-    \item \textbf{\textbf{SearchProfile}}
-
-
-    \begin{itemize}
-
-\item SearchUser(\textit{String} keyword)
-\end{itemize}
-
-
-    \item \textbf{\textbf{OpenProfile}}
-    \begin{itemize}
-
-\item SelectUser(\textit{String} nickname)
+\item request(login)
+\item AddUserToTheSession(\textit{String} email, \textit{String} password)
+\item Logout()
+\item GoToUpdateProfilePage()
+\item GetUserFromSession()
 
 \end{itemize}
 
-
-    \item \textbf{\textbf{RegistrationManager}}
-
-\begin{itemize}
-        \item CreateAnAccount()
-        \item Registration(\textit{String} name, \textit{String} surname, \textit{String} nickname, \textit{String} mail, \textit{String} password, \textit{Boolean}  ED tick)
-        \item Registration(\textit{String} name, \textit{String} surname, \textit{String} nickname, \textit{String} mail, \textit{String} password)
-\end{itemize}
-
-    \item \textbf{\textbf{Create Tournament}}
-
-\begin{itemize}
-        \item CreateATournament()
-        \item TournamentInformation(\textit{String} tournament name, \textit{Date} subscription deadline, \textit{List\textless Educator\textgreater}  list of educators, \textit{Boolean} create badge tick)
-        \item BadgeDetails(\textit{String} tournament name, \textit{String} badge name, \textit{String} description, \textit{String} rules of badge)
-        \item SelectedBadge(\textit{String} tournament name, \textit{String} badge name)
-        \item ChangeBadge(\textit{String} tournament name, \textit{String} badge name, \textit{String} description, \textit{String} rules of badge)
-\end{itemize}
-
-    \item \textbf{\textbf{Join Tournament}}
-\begin{itemize}
-        \item JoinTournament(\textit{String} tournament name)
-\end{itemize}
-
-    \item \textbf{\textbf{View Tournament}}
-
-\begin{itemize}
-        \item GetTournamentInformation(\textit{String} tournament name)
-        \item SearchTournament(\textit{String} keyword)
-\end{itemize}
-
-    \item \textbf{\textbf{CreateBadge}}
-\begin{itemize}
-
-    \item BadgeDetails(\textit{String} tournament name, \textit{String} badge name, \textit{String} description, \textit{String} rules of badge)
-\end{itemize}
-
-    \item \textbf{\textbf{ModifyBadge}}
-
-\begin{itemize}
-        \item SelectedBadge(\textit{String} tournament name, \textit{String} badge name)
-        \item ChangeBadge(\textit{String} tournament name, \textit{String} badge name, \textit{String} description, \textit{String} rules of badge)
-\end{itemize}
+    \item \textbf{\textbf{DashboardManager}} (contains all the interfaces belonging to other managers, apart from NotificationManager and Model)
 
     \item \textbf{\textbf{Model}}
+    \begin{itemize}
 
-\begin{itemize}
-        \item CheckCredentials(\textit{String} nickname, \textit{String} password)
-        \item GetEducatorTournaments(\textit{String} nickname)
-        \item GetStudentTournaments(\textit{String} nickname)
-        \item GetNewBattlesFromTournaments(\textit{List\textless Tournament\textgreater} list tournament, \textit{String} nickname)
-        \item GetLastTournaments()
-        \item GetRepositoryLink(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item GetAdditionalConfiguration(\textit{String} tournament name, \textit{String} battle name)
-        \item SaveScore(\textit{Int}  score, \textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item CheckNickname(\textit{String} nickname)
-        \item CheckMail(\textit{String} mail)
-        \item SaveNewUserCredentials(\textit{String} name, \textit{String} surname, \textit{String} nickname, \textit{String} mail, \textit{String} password, \textit{Boolean}  ED tick)
-        \item GetAllStudents()
-        \item GetUser(\textit{String} nickname)
-        \item GetUsers(\textit{String} keyword)
-        \item GetDeadlineExpiration(\textit{String} tournament name)
-        \item GetDeadlineExpiration(\textit{String} tournament name, \textit{String} battle name)
-        \item GetRegistrationDeadline(\textit{String} tournament name, \textit{String} battle name)
-        \item CheckBadgeNameDoesNotExists(\textit{String} tournament name, \textit{String} badge name)
-        \item GetAllEducatorBadge(\textit{String} nickname)
-        \item SaveNewBadge(\textit{String} tournament name, \textit{String} badge name, \textit{String} description, \textit{String} rules of badge)
-        \item CheckBadgeBelongsToEducator(\textit{String} nickname, \textit{String} badge name)
-        \item SaveChangedBadge(\textit{String} tournament name, \textit{String} badge name, \textit{String} description, \textit{String} rules of badge)
-        \item GetTournamentName(\textit{String} tournament name)
-        \item GetTournamentInformation(\textit{String} tournament name)
-        \item GetTournamentFromSearch(\textit{String} keyWord)
-        \item GetStudentTournaments(\textit{String} nickname)
-        \item GetLastTournaments()
-        \item SaveStudentAsTournamentPartecipant(\textit{String} tournament name, \textit{String} nickname)
-        \item GetAllStudentsIntheTournament(\textit{String} tournament name)
-        \item CheckStudentAlreadyJoinedTournament(\textit{String} tournament name, \textit{List\textless String\textgreater} list nicknames)
-        \item CheckStudentAlreadyJoinedTouenament(\textit{String} tournament name, \textit{String} nickname)
-        \item CheckGroupAlreadyJoined(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item CheckGroupNumber(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item SaveGroupIntheBattleList(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item CheckBattleName(\textit{String} tournament name, \textit{String} battle name)
-        \item GetBattleInformation(\textit{String} tournament name, \textit{String} battle name)
-        \item CheckGroupName(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item CheckGroupParticipants(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item AddStudentToGroup(\textit{String} nickname, \textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item CreateNewBattle(\textit{String} tournament name, \textit{String} battle name, \textit{String} code kata, \textit{Int}  minimum member per group, \textit{Int}  maximum member per group, \textit{Date} registration deadline, \textit{Date} final submission deadline, \textit{List\textless String\textgreater} list additional configuration for scoring, \textit{String} repository link)
-        \item CheckStudentAlreadyJoinedBattle(\textit{String} battle name, \textit{String} tournament name, \textit{String} nickname)
-        \item GetEducatorsName(\textit{List\textless Educators\textgreater} list of educators)
-        \item SaveNewTournament(\textit{String} tournament name, \textit{String} subscription deadline, \textit{List\textless Educators\textgreater} list of educators)
+\item CheckCredentials(\textit{String} email, \textit{String} password)
+\item GetPublishedInternships(\textit{String} email)
+\item GetStudentRecmmendedInternships(\textit{String} email)
+\item GetUniversityEngagedStudents(\textit{String} email)
+\item CheckEmail(\textit{String} email)
+\item SaveNewuserCredentials(String name, \textit{String} surname, \textit{String} email, \textit{String} password)
+\item GetUser(\textit{String} email)
+\item SaveChanges(\textit{String} email, \textit{String} field, \textit{String} content)
+\item GetInternshipFromSearch(\textit{String} keyword)
+\item GetInternshipInformation(\textit{String} internshipId)
+\item SaveApplyRequest(\textit{String} email, \textit{String} password)
+\item GetInternshipCompany(internshipId)
+\item GetStudentApplicaitions(\textit{String} email)
+\item GetApplicationStatus(\textit{String} applicationId)
+\item GetStudentOffers(\textit{String} email)
+\item StartApplication(\textit{String} email, \textit{String} internshipId)
+\item RemoveApplication(\textit{String} email, \textit{String}  internshipId)
+\item SelectTask(\textit{String} taskId)
+\item SaveAnswers(\textit{String} taskId, \textit{List<String>} answers)
+\item GetCompletedInternships(\textit{String} email)
+\item SaveFeedback(\textit{String} email, \textit{String} internshipId, \textit{String} text)
+\item GetAppliedInternship(\textit{String} email)
+\item SaveComplaint(\textit{String} email, \textit{String} internshipId, \textit{String} text)
+\item SaveComplaint(\textit{String} companyEmail, \textit{String} studentEmail, \textit{String} text)
+\item GetStudentUniversity(\textit{String} email)
+\item SaveNewInternship(\textit{String} companyEmail, \textit{String} name,  \textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
+\item GetInterestedStudents(\textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
+\item SaveChanges(\textit{String} internshipId, field, content)
+\item GetSuggestedStudents(\textit{String} internshipId)
+\item SaveInvitation(\textit{String} sutendEmail, \textit{String} internshipId)
+\item GetApplyRequest(\textit{String} internshipId)
 \end{itemize}
 
-    \item \textbf{\textbf{CreateBattle}}
 
+    \item \textbf{\textbf{ViewProfile}}
+    \begin{itemize}
+
+\item SelectUser(\textit{String} email)
+
+\end{itemize}
+
+
+    \item \textbf{\textbf{LoginManager}}
 \begin{itemize}
-        \item NewBattle(\textit{String} tournament name)
-        \item CreateBattle(\textit{String} battle name, \textit{String} code kata, \textit{Int}  minimum member per group, \textit{Int}  maximum member per group, \textit{Date} registration deadline, \textit{Date} final submission deadline, \textit{List\textless String\textgreater} list additional configuration for scoring)
+        \item Login(\textit{String} email, \textit{String} password)
+\end{itemize}
+
+    \item \textbf{\textbf{RegistrationManager}}
+\begin{itemize}
+        \item CreateAnAccount()
+        \item Registration(\textit{String} name, \textit{String} surname, \textit{String} email, \textit{String} password)
+\end{itemize}
+
+    \item \textbf{\textbf{EmailServer}}
+\begin{itemize}
+        \item SendEmail(\textit{String} email)
+\end{itemize}
+
+    \item \textbf{\textbf{ProfileManager}}
+\begin{itemize}
+        \item SelectUser(\textit{String} email)
+        \item UpdateProfile(\textit{String} email, \textit{String} field, \textit{String} content)
+        \item ValidateChanges(\textit{String} field, \textit{String} content)
+        \item 
+\end{itemize}
+
+    \item \textbf{\textbf{InternshipManager}}
+\begin{itemize}
+
+
+
+    \item SearchInternship(\textit{String} keyoword)
+    \item Apply(\textit{String} internshipId)
+    \item Accept(\textit{String} email, \textit{String} internshipId)
+    \item Reject(\textit{String} email, \textit{String} internshipId)
+    \item ProvideFeedback(\textit{String} internshipId)
+    \item CreateNewFeedback(\textit{String} email, \textit{String} internshipId, \textit{String} text)
+    \item CreateInternship()
+    \item PublishNewInternship(\textit{String} name, \textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
+    \item UpdateInternship(\textit{String} internshipId, \textit{String} field, \textit{String} content)
+    \item DelelteInternship(\textit{String} internshipId)
+    \item Invite(\textit{String} email)
+\end{itemize}
+
+    \item \textbf{\textbf{ApplicationManager}}
+\begin{itemize}
+        \item SubmitQuestionnaire(\textit{List<String>} answers)
+\end{itemize}
+
+    \item \textbf{\textbf{ComplaintManager}}
+\begin{itemize}
+        \item MakeComplaint(\textit{String} internshipId)
+        \item CreateNewComplaint(\textit{String} email, \textit{String} internshipId, \textit{String} text)
+        \item 
+\end{itemize}
+
+    \item \textbf{\textbf{RecommendationManager}}
+\begin{itemize}
+        \item InformInterestedStudents(\textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
 \end{itemize}
 
 \end{itemize}
@@ -619,51 +616,32 @@ DESCRIPTION
 \begin{itemize}
     \item \textbf{\textbf{JoinBattle}}
 \begin{itemize}
-    \item ChooseBattle(\textit{String} tournament name, \textit{String} battle name)
+    \item 
     \end{itemize}
 
 
     \item \textbf{\textbf{CreateGroup}}
-
 \begin{itemize}
-        \item CreateGroupAndInvitation(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name, \textit{List\textless String\textgreater} list nicknames)
-        \item acceptInvitation(Student student, \textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item rejectInvitation(Student student, \textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item JoinBattle(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
+        \item 
 \end{itemize}
 
     \item \textbf{\textbf{ViewBattle}}
     \begin{itemize}
-        \item GetBattleInformation(\textit{String} tournament name, \textit{String} battle name)
+        \item 
 \end{itemize}
 
     \item \textbf{\textbf{EndBattle}}
 \begin{itemize}
-        \item StartFinalBattleTimer(\textit{String} tournament name, \textit{String} battle name, \textit{Date} final submission deadline)
+        \item 
 \end{itemize}
 
     \item \textbf{\textbf{NotificationManager}}
-
 \begin{itemize}
-        \item ChosenEducatorNotification(\textit{String} nickname, \textit{String} tournament name)
-        \item NewBattleNotification(\textit{String} nickname, \textit{String} tournament name, \textit{String} battle name)
-        \item NewTournamentNotification(\textit{String} nickname, \textit{String} tournament name)
-        \item SendInvitation(\textit{String} nickname, \textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-\end{itemize}
-
-    \item \textbf{\textbf{EvaluationManager}}
-
-\begin{itemize}
-        \item AnalyzeSourceCode(\textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-        \item ScoreAssignment(\textit{Int}  score, \textit{String} tournament name, \textit{String} battle name, \textit{String} group name)
-\end{itemize}
-
-    \item \textbf{\textbf{DashboardManager}} (contains all the interfaces belonging to other managers, apart from NotificationManager and Model)
-
-    \item \textbf{\textbf{WebServer}} (contains all the interfaces belonging to other managers, apart from NotificationManager and Model)
-    \begin{itemize}
-        \item GetSessionFromUser()
-        \item AddUserToTheSession(\textit{String} nickname, \textit{String} password)
+        \item NewApplyNotification(\textit{String} email, \textit{String} internshipId)
+        \item NewComplaintNotification(\textit{String} studentEmail, \textit{String} internshipId)
+        \item NewComplaintNotification(\textit{String} companyEmail, \textit{String} studentEmail)
+        \item NewInternshipNotification(\textit{String}  companyName, \textit{String} internshipName, \textit{String} applicationDomain, \textit{String} tasks, \textit{String} technologies, \textit{String}  terms)
+        \item NewInviteNotification(\textit{String} studentEmail, \textit{String} internshipId)
 \end{itemize}
 
 \end{itemize}
